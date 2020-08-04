@@ -13,9 +13,9 @@
 
 <?php
 
-require("ingresar.html");
+require("../html/ingresar.html");
 
-require("../para.php");
+require("para.php");
 
 if(isset($_POST["entrar"])){
 
@@ -36,7 +36,7 @@ if(isset($_POST["entrar"])){
             if($mail==$puntero["mail"] && password_verify($contraseña,$puntero['contraseña'])){
                 
 
-                header("Location:/prototipofinal/muro/index.php?k=3");
+                header("Location:muro.php?k=3");
 
                 session_start();
 

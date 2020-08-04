@@ -2,10 +2,10 @@
 session_start();
 
 if(!isset($_SESSION["mail"])){
-    header("location:../ingresar/ingresar.html");
+    header("location:../html/ingresar.html");
 }
 if(!isset($_SESSION["id"])){
-    header("location:../ingresar/ingresar.html");
+    header("location:../html/ingresar.html");
 }
 $id=$_SESSION["id"];
 $mail=$_SESSION["mail"];
@@ -63,7 +63,7 @@ background:red;
 
 <?php
 
-require("../para.php");
+require("para.php");
 $conexion=mysqli_connect("localhost","root","root","r3ai");
 
 //Para editar o crear la descripcion

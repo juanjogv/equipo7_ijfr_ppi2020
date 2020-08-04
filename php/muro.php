@@ -2,10 +2,10 @@
 session_start();
 
 if (!isset($_SESSION["mail"])) {
-  header("location:../ingresar/ingresar.html");
+  header("location:../html/ingresar.html");
 }
 if (!isset($_SESSION["id"])) {
-  header("location:../ingresar/ingresar.html");
+  header("location:../html/ingresar.html");
 }
 $idp = $_SESSION["id"];
 function imprimir($conexion)
@@ -54,13 +54,13 @@ function imprimir($conexion)
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="../index.html">R3AI</a>
+    <a class="navbar-brand" href="index.html">R3AI</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link " href="../perfil/index.php">Perfil<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link " href="index.php">Perfil<span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="../cerrar.php">Cerrar Sesion</a>
 
       </div>
@@ -69,7 +69,7 @@ function imprimir($conexion)
   <div class="container-fluid" id="comentarios">
     <div class="row">
       <div class="col-xs-6 col-sm-6 col-fluid">
-        <form action="index.php" method="POST">
+        <form action="muro.php" method="POST">
           <div class="form-group">
             <p>Comentario</p>
             <input type="text" class="form-control" name="comentario" rows="10" cols="40" required>
@@ -81,7 +81,7 @@ function imprimir($conexion)
     </div>
   </div>
   <?php
-  require("../para.php");
+  require("para.php");
   $conexion = mysqli_connect("localhost", "root", "root", "r3ai") or die("ERROR EN LOS DATOS DEL HOSTING");
   if (isset($_GET['k'])) {
     if ($_GET['k'] == 3) {

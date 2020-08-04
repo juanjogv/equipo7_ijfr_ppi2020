@@ -13,9 +13,9 @@
 
 <?php
 
-require("registrar.html");
+require("../html/registrar.html");
 
-require("../para.php");
+require("para.php");
 
 if(isset($_POST["registrar"])){
     
