@@ -1,0 +1,28 @@
+
+
+h2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+*{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.fil2{
+background-color: lightgray;
+}
+
+.fil22{
+    background-color: lightgray;
+}
+
+.fil4{
+    background-image: url(https://images.wallpaperscraft.com/image/minimalism_gradient_dark_171946_1920x1080.jpg);
+    color: black;
+}
+
+.fil6{
+    background-color: black;
+    color: blanchedalmond;
+}
+
