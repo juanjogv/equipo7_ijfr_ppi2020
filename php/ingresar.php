@@ -22,7 +22,7 @@
 
         try {
 
-            $conexion = mysqli_connect("localhost", "root", "", "r3ai") or die("Error en la informacion de la base de datos o el host");
+            $conexion = mysqli_connect("localhost", "root", "root", "r3ai") or die("Error en la informacion de la base de datos o el host");
 
             $mail = mysqli_real_escape_string($conexion, $_POST["mail"]);
 
@@ -32,9 +32,9 @@
 
             $resultado = mysqli_query($conexion, $consulta);
 
-            while ($puntero = mysqli_fetch_assoc($resultado)) {
+            while ($puntero = mysqli_fetch_row($resultado)) {
 
-                if ($mail == $puntero["mailUsuario"] && password_verify($contraseña, $puntero['passUsuario'])) {
+                if ($mail == $puntero[1] && password_verify($contraseña, $puntero[3])) {
 
 
                     header("Location:muro.php?k=3");
@@ -42,7 +42,7 @@
                     session_start();
 
                     $_SESSION["mail"] = $_POST["mail"];
-                    $_SESSION["id"] = $puntero["idUsuario"];
+                    $_SESSION["id"] = $puntero[0];
                 }
             }
 
