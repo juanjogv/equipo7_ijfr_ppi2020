@@ -27,7 +27,7 @@ if (isset($_SESSION["user_id"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>R3AI</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="layout/styles1.css">
+    <link rel="stylesheet" href="../layout/styles1.css">
 </head>
 
 <body>

@@ -6,4 +6,4 @@ session_unset();
 
 session_destroy();
 
-header("location: /login2");
+header("location: index.php");

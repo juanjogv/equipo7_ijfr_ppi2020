@@ -1,3 +1,3 @@
 <header>
-    <a href="/login2">R3AI</a>
+    <a href="index.php">R3AI</a>
 </header>

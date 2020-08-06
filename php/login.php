@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION['user_id'])) {
-    header('Location: /login2');
+    header('Location: index.php');
 }
 
 require("db.php");
@@ -21,7 +21,7 @@ if (!empty($_POST["email"]) && !empty($_POST["password"])) {
 
     if (count($result) > 0 && password_verify($password, $result['passUsuario'])) {
         $_SESSION["user_id"] = $result["idUsuario"];
-        header("Location: /login2");
+        header("Location: index.php");
     } else {
         $message = "Disculpa, los datos no coinciden";
     }
