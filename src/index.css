@@ -11,3 +11,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.img_navbar {
+  width: 50px;
+}
+
+.bg {
+  background-image: url(/img/01.jpg);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+a:hover {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.mt-6 {
+  margin-top: 4rem;
+}
+
+.mb-6 {
+  margin-bottom: 4rem;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+.navbar-dark a:link,
+a:visited,
+a:active {
+  color: white !important;
+}
+.bg-dark {
+  background-color: #1d1c1c !important;
+}
