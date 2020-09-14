@@ -14,7 +14,7 @@ export default class NavBar extends Component {
                             <ReactBootStrap.Row>
                                 <ReactBootStrap.Col md={4} fluid><h2>
                                     "La Herramienta Más Eficiente Para Combatir El Cambio Climatico
-                                    Eres Tú."</h2>
+                                    Eres Tú"</h2>
                                     <ReactBootStrap.Image src={logo} fluid />
                                 </ReactBootStrap.Col>
                                 <ReactBootStrap.Col md={{ span: 4, offset: 0 }} fluid>
