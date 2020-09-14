@@ -4,19 +4,11 @@ import '../index.css';
 import logo from '../img/r3ai_logo.png';
 
 
-
-
 export default class NavBar extends Component {
-
-
-
     render() {
-        const Style = {
-            background: 'black !important',
-        }
         return (
             <div>
-                <ReactBootStrap.Navbar className='color-nav navbar navbar-expand-lg navbar-dark bg-dark fixed-top' style={Style} bg="dark" variant="dark"  >
+                <ReactBootStrap.Navbar className='color-nav navbar navbar-expand-lg navbar-dark bg-dark ' bg="dark" variant="dark"  >
                     <ReactBootStrap.Navbar.Brand href="#home"><img src={logo} alt="logo" width="45px" /></ReactBootStrap.Navbar.Brand>
                     <ReactBootStrap.Nav className="mr-auto">
                         <ReactBootStrap.Nav.Link href='/'>Home</ReactBootStrap.Nav.Link>

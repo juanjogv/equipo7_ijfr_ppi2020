@@ -17,19 +17,6 @@ code {
   width: 50px;
 }
 
-.bg {
-  background-image: url(/img/01.jpg);
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-
 a:hover {
   color: var(--white);
   text-decoration: none;
