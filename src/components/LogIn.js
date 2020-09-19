@@ -16,7 +16,7 @@ export default class Login extends Component {
 
     render() {
         return (
-            <div style={{ position: 'absolute', height: '100%', width: '100%', backgroundColor: 'rgb(240, 242, 245)' }}>
+            <div>
                 <div>
                     <ReactBootStrap.Row></ReactBootStrap.Row>
                     <ReactBootStrap.Row style={this.StyleForm()} className='d-flex align-items-center justify-content-center' >
