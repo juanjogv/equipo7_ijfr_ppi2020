@@ -15,6 +15,10 @@ export default class NavBar extends Component {
                         <ReactBootStrap.Nav.Link href='/mensualidades'>Project</ReactBootStrap.Nav.Link>
                         <ReactBootStrap.Nav.Link href='/posts'>Team</ReactBootStrap.Nav.Link>
                     </ReactBootStrap.Nav>
+                    <ReactBootStrap.Nav>
+                        <ReactBootStrap.Nav.Link href='/login'>Log In</ReactBootStrap.Nav.Link>
+                        <ReactBootStrap.Nav.Link href='/signin'>Sign In</ReactBootStrap.Nav.Link>
+                    </ReactBootStrap.Nav>
                 </ReactBootStrap.Navbar>
             </div>
         )
