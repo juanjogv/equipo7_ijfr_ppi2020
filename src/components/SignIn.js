@@ -49,11 +49,8 @@ export default class SignUp extends Component {
                                 </ReactBootStrap.Form.Text>
                             </ReactBootStrap.Form.Group>
                             <ReactBootStrap.Form.Group controlId="formBasicPassword">
-                                <ReactBootStrap.Form.Label>Password</ReactBootStrap.Form.Label>
-                                <ReactBootStrap.Form.Control type="password" placeholder="Password" />
-                            </ReactBootStrap.Form.Group>
-                            <ReactBootStrap.Form.Group controlId="formBasicCheckbox">
-                                <ReactBootStrap.Form.Check type="checkbox" label="Check me out" />
+                                <ReactBootStrap.Form.Label>Contraseña</ReactBootStrap.Form.Label>
+                                <ReactBootStrap.Form.Control type="password" placeholder="Contraseña" />
                             </ReactBootStrap.Form.Group>
                             <ReactBootStrap.Form.Group>
                                 <ReactBootStrap.Button variant="success" type="submit" className='px-4' >
