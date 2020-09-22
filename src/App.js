@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar.js";
 import IntroBlocks from './components/IntroBlocks'
 import LogIn from './components/LogIn.js';
 import SignIn from './components/SignIn.js';
+import Posts from './components/Posts.js';
 import "./App.css";
 
 
@@ -23,6 +24,7 @@ class App extends Component {
 
           <Route path='/login' component={LogIn} />
           <Route path='/signin' component={SignIn} />
+          <Route path='/posts' component={Posts} />
         </Router>
       </div>
     );
