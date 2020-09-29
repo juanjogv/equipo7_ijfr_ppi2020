@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import posts from '../sample/MOCK_DATA.json';
+import '../styles/Post.css';
+import { Form } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+
 
 export default class Posts extends Component {
 
@@ -10,13 +14,30 @@ export default class Posts extends Component {
     render() {
         return (
             <div>
-                <h1>Publicaciones</h1>
+                <h1 className="publicaciones">Publicaciones</h1>
                 {
                     this.state.posts.map(post => {
-                        return <div key={post.id}>
-                            <h1>{post.title}</h1>
-                            <p>{post.body}</p>
-                            <img src={post.url} alt={post.imageId}></img>
+                        return <div className="contenedor" key={post.id}>
+                            <div className="caja">
+                                <h1>{post.title}</h1>
+                                <p>{post.body}</p>
+                                <div className="imagen">
+                                    <img src={post.url} alt={post.imageId}></img>
+                                </div>
+                            </div>
+                            <div className="comentario">
+                                <div className="Form">
+                                    <Form>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <Form.Control type="text" placeholder="Enter your commentary" />
+                                        </Form.Group>
+                                        <Button variant="primary" type="submit">
+
+                                            comment
+                                        </Button>
+                                    </Form>
+                                </div>
+                            </div>
                         </div>
                     })
                 }

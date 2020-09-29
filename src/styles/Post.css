@@ -1,0 +1,40 @@
+.contenedor{
+ background-color: white;
+  position: relative;
+  box-shadow: 0px 25px 25px 25px rgba(0, 0, 0, 0.1);
+  margin: 5% 5% 5% 5%;
+  
+  text-align: left;
+}
+
+.caja{
+    margin: 5% 5% 5% 5%;
+}
+
+.title{
+    position: relative;
+    text-align: left;
+}
+
+.imagen{
+    margin-bottom: 5%;
+    text-align: center;
+}
+
+.publicaciones{
+    text-align: center;
+}
+
+.comentario{
+    border-top: 2px solid black;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.Form{
+    margin-bottom: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
