@@ -32,12 +32,12 @@ export default class Login extends Component {
                                 <ReactBootStrap.Form.Control type="password" placeholder="Contraseña" />
                             </ReactBootStrap.Form.Group>
                             <ReactBootStrap.Form.Group>
-                                <ReactBootStrap.Button variant="success" type="submit" className='px-4'>
+                                <ReactBootStrap.Button href='/posts' variant="success" type="submit" className='px-4'>
                                     Inicar sesión
                                     </ReactBootStrap.Button>
                             </ReactBootStrap.Form.Group>
                             <ReactBootStrap.Form.Group>
-                                <ReactBootStrap.Button variant="success" type="submit">
+                                <ReactBootStrap.Button href='/signin' variant="success" type="submit">
                                     Crear una cuenta
                                     </ReactBootStrap.Button>
                             </ReactBootStrap.Form.Group>
