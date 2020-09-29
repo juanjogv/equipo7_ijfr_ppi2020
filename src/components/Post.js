@@ -5,7 +5,7 @@ import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
 
-export default class Posts extends Component {
+export default class Post extends Component {
 
     state = {
         posts: posts,
@@ -31,8 +31,7 @@ export default class Posts extends Component {
                                         <Form.Group controlId="formBasicEmail">
                                             <Form.Control type="text" placeholder="Enter your commentary" />
                                         </Form.Group>
-                                        <Button variant="primary" type="submit">
-
+                                        <Button variant="success" type="submit">
                                             comment
                                         </Button>
                                     </Form>

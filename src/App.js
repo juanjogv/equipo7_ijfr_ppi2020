@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar.js";
 import IntroBlocks from './pages/IntroBlocks'
 import LogIn from './pages/LogIn.js';
 import SignIn from './pages/SignIn.js';
-import Posts from './components/Posts.js';
+import Posts from './pages/Posts.js';
 import "./App.css";
 
 

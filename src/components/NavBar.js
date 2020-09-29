@@ -23,9 +23,6 @@ export default class NavBar extends Component {
                         </ReactBootStrap.Nav>
                     </ReactBootStrap.Navbar.Collapse>
                 </ReactBootStrap.Navbar>
-
-
-
             </div>
         )
     }
