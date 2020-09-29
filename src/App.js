@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, /*Link*/ } from 'react-router-dom';
 import NavBar from "./components/NavBar.js";
-import IntroBlocks from './components/IntroBlocks'
-import LogIn from './components/LogIn.js';
-import SignIn from './components/SignIn.js';
+import IntroBlocks from './pages/IntroBlocks'
+import LogIn from './pages/LogIn.js';
+import SignIn from './pages/SignIn.js';
 import Posts from './components/Posts.js';
 import "./App.css";
 
