@@ -1,0 +1,458 @@
+[
+    {
+        "id": 1,
+        "puesto": 1,
+        "puntaje": "5",
+        "nombre": "Alisha"
+    },
+    {
+        "id": 2,
+        "puesto": 2,
+        "puntaje": "603",
+        "nombre": "Gabriella"
+    },
+    {
+        "id": 3,
+        "puesto": 3,
+        "puntaje": "28672",
+        "nombre": "Sonny"
+    },
+    {
+        "id": 4,
+        "puesto": 4,
+        "puntaje": "02135",
+        "nombre": "Fred"
+    },
+    {
+        "id": 5,
+        "puesto": 5,
+        "puntaje": "95346",
+        "nombre": "Arnoldo"
+    },
+    {
+        "id": 6,
+        "puesto": 6,
+        "puntaje": "14",
+        "nombre": "Elisabetta"
+    },
+    {
+        "id": 7,
+        "puesto": 7,
+        "puntaje": "88",
+        "nombre": "Gale"
+    },
+    {
+        "id": 8,
+        "puesto": 8,
+        "puntaje": "4824",
+        "nombre": "Bennett"
+    },
+    {
+        "id": 9,
+        "puesto": 9,
+        "puntaje": "97799",
+        "nombre": "Janos"
+    },
+    {
+        "id": 10,
+        "puesto": 10,
+        "puntaje": "8558",
+        "nombre": "Nikolaos"
+    },
+    {
+        "id": 11,
+        "puesto": 11,
+        "puntaje": "94842",
+        "nombre": "Dale"
+    },
+    {
+        "id": 12,
+        "puesto": 12,
+        "puntaje": "95724",
+        "nombre": "Darell"
+    },
+    {
+        "id": 13,
+        "puesto": 13,
+        "puntaje": "6",
+        "nombre": "Yalonda"
+    },
+    {
+        "id": 14,
+        "puesto": 14,
+        "puntaje": "561",
+        "nombre": "Benyamin"
+    },
+    {
+        "id": 15,
+        "puesto": 15,
+        "puntaje": "2",
+        "nombre": "Chan"
+    },
+    {
+        "id": 16,
+        "puesto": 16,
+        "puntaje": "3052",
+        "nombre": "Massimo"
+    },
+    {
+        "id": 17,
+        "puesto": 17,
+        "puntaje": "96707",
+        "nombre": "Hollie"
+    },
+    {
+        "id": 18,
+        "puesto": 18,
+        "puntaje": "60946",
+        "nombre": "Pavla"
+    },
+    {
+        "id": 19,
+        "puesto": 19,
+        "puntaje": "96500",
+        "nombre": "Eilis"
+    },
+    {
+        "id": 20,
+        "puesto": 20,
+        "puntaje": "6",
+        "nombre": "Kristofor"
+    },
+    {
+        "id": 21,
+        "puesto": 21,
+        "puntaje": "37",
+        "nombre": "Eben"
+    },
+    {
+        "id": 22,
+        "puesto": 22,
+        "puntaje": "340",
+        "nombre": "Patty"
+    },
+    {
+        "id": 23,
+        "puesto": 23,
+        "puntaje": "804",
+        "nombre": "Nessi"
+    },
+    {
+        "id": 24,
+        "puesto": 24,
+        "puntaje": "771",
+        "nombre": "Alvin"
+    },
+    {
+        "id": 25,
+        "puesto": 25,
+        "puntaje": "53",
+        "nombre": "Blinny"
+    },
+    {
+        "id": 26,
+        "puesto": 26,
+        "puntaje": "0",
+        "nombre": "Herbie"
+    },
+    {
+        "id": 27,
+        "puesto": 27,
+        "puntaje": "67666",
+        "nombre": "Goldina"
+    },
+    {
+        "id": 28,
+        "puesto": 28,
+        "puntaje": "5",
+        "nombre": "Austin"
+    },
+    {
+        "id": 29,
+        "puesto": 29,
+        "puntaje": "92979",
+        "nombre": "Woodman"
+    },
+    {
+        "id": 30,
+        "puesto": 30,
+        "puntaje": "81032",
+        "nombre": "Chloe"
+    },
+    {
+        "id": 31,
+        "puesto": 31,
+        "puntaje": "28",
+        "nombre": "Carine"
+    },
+    {
+        "id": 32,
+        "puesto": 32,
+        "puntaje": "04",
+        "nombre": "Karlene"
+    },
+    {
+        "id": 33,
+        "puesto": 33,
+        "puntaje": "069",
+        "nombre": "Netta"
+    },
+    {
+        "id": 34,
+        "puesto": 34,
+        "puntaje": "848",
+        "nombre": "Ramsey"
+    },
+    {
+        "id": 35,
+        "puesto": 35,
+        "puntaje": "8",
+        "nombre": "Hedvig"
+    },
+    {
+        "id": 36,
+        "puesto": 36,
+        "puntaje": "5",
+        "nombre": "Vlad"
+    },
+    {
+        "id": 37,
+        "puesto": 37,
+        "puntaje": "7",
+        "nombre": "Daffi"
+    },
+    {
+        "id": 38,
+        "puesto": 38,
+        "puntaje": "95",
+        "nombre": "Garrik"
+    },
+    {
+        "id": 39,
+        "puesto": 39,
+        "puntaje": "2433",
+        "nombre": "Pavel"
+    },
+    {
+        "id": 40,
+        "puesto": 40,
+        "puntaje": "77",
+        "nombre": "Toinette"
+    },
+    {
+        "id": 41,
+        "puesto": 41,
+        "puntaje": "0",
+        "nombre": "Mariam"
+    },
+    {
+        "id": 42,
+        "puesto": 42,
+        "puntaje": "7347",
+        "nombre": "Shandy"
+    },
+    {
+        "id": 43,
+        "puesto": 43,
+        "puntaje": "86346",
+        "nombre": "Yoko"
+    },
+    {
+        "id": 44,
+        "puesto": 44,
+        "puntaje": "8",
+        "nombre": "Friedrick"
+    },
+    {
+        "id": 45,
+        "puesto": 45,
+        "puntaje": "1",
+        "nombre": "Konstantine"
+    },
+    {
+        "id": 46,
+        "puesto": 46,
+        "puntaje": "8",
+        "nombre": "Margy"
+    },
+    {
+        "id": 47,
+        "puesto": 47,
+        "puntaje": "35",
+        "nombre": "Major"
+    },
+    {
+        "id": 48,
+        "puesto": 48,
+        "puntaje": "2",
+        "nombre": "Madelene"
+    },
+    {
+        "id": 49,
+        "puesto": 49,
+        "puntaje": "8841",
+        "nombre": "Wynn"
+    },
+    {
+        "id": 50,
+        "puesto": 50,
+        "puntaje": "372",
+        "nombre": "Vick"
+    },
+    {
+        "id": 51,
+        "puesto": 51,
+        "puntaje": "4859",
+        "nombre": "Delmer"
+    },
+    {
+        "id": 52,
+        "puesto": 52,
+        "puntaje": "20621",
+        "nombre": "Martie"
+    },
+    {
+        "id": 53,
+        "puesto": 53,
+        "puntaje": "4",
+        "nombre": "Marice"
+    },
+    {
+        "id": 54,
+        "puesto": 54,
+        "puntaje": "5901",
+        "nombre": "Ravi"
+    },
+    {
+        "id": 55,
+        "puesto": 55,
+        "puntaje": "2",
+        "nombre": "Almeda"
+    },
+    {
+        "id": 56,
+        "puesto": 56,
+        "puntaje": "6",
+        "nombre": "Thia"
+    },
+    {
+        "id": 57,
+        "puesto": 57,
+        "puntaje": "43222",
+        "nombre": "Letizia"
+    },
+    {
+        "id": 58,
+        "puesto": 58,
+        "puntaje": "02952",
+        "nombre": "Kienan"
+    },
+    {
+        "id": 59,
+        "puesto": 59,
+        "puntaje": "5769",
+        "nombre": "Opalina"
+    },
+    {
+        "id": 60,
+        "puesto": 60,
+        "puntaje": "11",
+        "nombre": "Thaine"
+    },
+    {
+        "id": 61,
+        "puesto": 61,
+        "puntaje": "73",
+        "nombre": "Creigh"
+    },
+    {
+        "id": 62,
+        "puesto": 62,
+        "puntaje": "835",
+        "nombre": "Ted"
+    },
+    {
+        "id": 63,
+        "puesto": 63,
+        "puntaje": "29",
+        "nombre": "Marlo"
+    },
+    {
+        "id": 64,
+        "puesto": 64,
+        "puntaje": "650",
+        "nombre": "Timmy"
+    },
+    {
+        "id": 65,
+        "puesto": 65,
+        "puntaje": "5355",
+        "nombre": "Auberta"
+    },
+    {
+        "id": 66,
+        "puesto": 66,
+        "puntaje": "40246",
+        "nombre": "Elnar"
+    },
+    {
+        "id": 67,
+        "puesto": 67,
+        "puntaje": "183",
+        "nombre": "Percy"
+    },
+    {
+        "id": 68,
+        "puesto": 68,
+        "puntaje": "416",
+        "nombre": "Damaris"
+    },
+    {
+        "id": 69,
+        "puesto": 69,
+        "puntaje": "02",
+        "nombre": "Augy"
+    },
+    {
+        "id": 70,
+        "puesto": 70,
+        "puntaje": "0255",
+        "nombre": "Berky"
+    },
+    {
+        "id": 71,
+        "puesto": 71,
+        "puntaje": "4",
+        "nombre": "Inga"
+    },
+    {
+        "id": 72,
+        "puesto": 72,
+        "puntaje": "9",
+        "nombre": "Elvera"
+    },
+    {
+        "id": 73,
+        "puesto": 73,
+        "puntaje": "6817",
+        "nombre": "Ulrica"
+    },
+    {
+        "id": 74,
+        "puesto": 74,
+        "puntaje": "3663",
+        "nombre": "Munroe"
+    },
+    {
+        "id": 75,
+        "puesto": 75,
+        "puntaje": "841",
+        "nombre": "Iormina"
+    },
+    {
+        "id": 76,
+        "puesto": 76,
+        "puntaje": "9",
+        "nombre": "Lelah"
+    }
+]

@@ -19,7 +19,7 @@ export default class NavBar2 extends Component {
                         <ReactBootStrap.Nav className="mr-auto">
                             <ReactBootStrap.Nav.Link href='/' className="mr-5 ml-5"><img src={user} alt="logo" width="45px" /></ReactBootStrap.Nav.Link>
                             <ReactBootStrap.Nav.Link href='/' className="mr-5 ml-5"><img src={camara} alt="logo" width="45px" /></ReactBootStrap.Nav.Link>
-                            <ReactBootStrap.Nav.Link href='/' className="mr-5 ml-5"><img src={competencia} alt="logo" width="45px" /></ReactBootStrap.Nav.Link>
+                            <ReactBootStrap.Nav.Link href='/Ranking' className="mr-5 ml-5"><img src={competencia} alt="logo" width="45px" /></ReactBootStrap.Nav.Link>
 
                         </ReactBootStrap.Nav>
                         <ReactBootStrap.Nav>
