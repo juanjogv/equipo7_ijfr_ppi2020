@@ -21,13 +21,11 @@ class Tables extends React.Component {
                     </thead>
                     <tbody>
                         {this.state.ranking.map(ranking =>
-                            <tr>
-                                <td>{ranking.puesto}</td>
-                                <td>{ranking.puntaje}</td>
-                                <td>{ranking.nombre}</td>
-                            </tr>
-
-
+                                <tr key={ranking.id}>
+                                    <td>{ranking.puesto}</td>
+                                    <td>{ranking.puntaje}</td>
+                                    <td>{ranking.nombre}</td>
+                                </tr>
                         )}
                     </tbody>
                 </Table>
