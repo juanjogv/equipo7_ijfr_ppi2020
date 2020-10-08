@@ -6,6 +6,8 @@ import LogIn from './pages/LogIn.js';
 import SignIn from './pages/SignIn.js';
 import Posts from './pages/Posts.js';
 import Ranking from './pages/Ranking.js';
+import Profile from './pages/Profile.js';
+import QR_Reader from './components/QR_Reader';
 import "./App.css";
 
 
@@ -24,10 +26,12 @@ class App extends Component {
             </div>
           }} />
 
+          <Route path='/reader' component={QR_Reader} />
           <Route path='/login' component={LogIn} />
           <Route path='/signin' component={SignIn} />
           <Route path='/posts' component={Posts} />
-          <Route path='/Ranking' component={Ranking} />
+          <Route path='/ranking' component={Ranking} />
+          <Route path='/profile' component={Profile} />
         </Router>
       </div>
     );
