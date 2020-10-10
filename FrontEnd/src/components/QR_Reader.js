@@ -21,15 +21,21 @@ export default class Test extends Component {
     render() {
         return (
             <div>
-                <NavBar2 />
                 <ReactBootStrap.Container>
-                    <QrReader
-                        delay={300}
-                        onError={this.handleError}
-                        onScan={this.handleScan}
-                        style={{ maxWidth: '500px' }}
-                    />
-                    <p>{this.state.result}</p>
+                    <ReactBootStrap.Row>
+                        <NavBar2 />
+                        <ReactBootStrap.Col xs={12} md={6} >
+                            <QrReader
+                                delay={300}
+                                onError={this.handleError}
+                                onScan={this.handleScan}
+                                style={{ maxWidth: '500px' }}
+                            />
+                        </ReactBootStrap.Col>
+                        <ReactBootStrap.Col className="mt-6 pt-4" xs={12} md={6} >
+                            <p>{this.state.result}</p>
+                        </ReactBootStrap.Col>
+                    </ReactBootStrap.Row>
                 </ReactBootStrap.Container>
             </div>
         )

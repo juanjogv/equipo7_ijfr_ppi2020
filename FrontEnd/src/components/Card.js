@@ -10,7 +10,7 @@ class Cards extends React.Component {
     render() {
         return (
             <div >
-                <Row>
+                <Row ClassName="d-flex justify-content-center">
                     {this.state.ranking.map(e =>
                         <Card as={Col} xl={3} lg={3} md={4} sm={6} xs={10} style={{ width: '18rem' }} className="card">
                             <Card.Img variant="top" src="holder.js/100px180" />
