@@ -21,7 +21,7 @@ class App extends Component {
           <Route exact path='/' render={() => {
             return <div>
               <NavBar />
-              <div className="bg"></div>
+              <div className="bg"><h1>R3AI</h1></div>
               <IntroBlocks />
             </div>
           }} />

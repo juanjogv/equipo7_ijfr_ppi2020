@@ -21,7 +21,7 @@ class Cards extends React.Component {
                             <Card.Body>
                                 <Card.Title>{e.name}</Card.Title>
                                 <Card.Text>
-                                    puntaje: {e.puesto}
+                                    Puesto: {e.puesto}
                                 </Card.Text>
                                 <Link to="/profile">
                                     <Button variant="primary">Ver</Button>

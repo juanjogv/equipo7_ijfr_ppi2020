@@ -22,7 +22,7 @@ export default class Post extends Component {
                                 <h1>{post.title}</h1>
                                 <p>{post.body}</p>
                                 <div className="imagen">
-                                    <img src={post.url} alt={post.imageId}></img>
+                                    <img src={post.url} alt={post.imageId} className="img-fluid" ></img>
                                 </div>
                             </div>
                             <div className="comentario">
