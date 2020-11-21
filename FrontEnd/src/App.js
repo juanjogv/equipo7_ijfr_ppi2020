@@ -18,7 +18,6 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-
           <Route exact path='/' render={() => {
             return <div>
               <NavBar />
@@ -26,7 +25,6 @@ class App extends Component {
               <IntroBlocks />
             </div>
           }} />
-
           <Route path='/reader' component={QR_Reader} />
           <Route path='/login' component={LogIn} />
           <Route path='/signin' component={SignIn} />

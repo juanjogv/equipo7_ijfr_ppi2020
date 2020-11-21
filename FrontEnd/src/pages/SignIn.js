@@ -19,20 +19,31 @@ export default function SignUp() {
     const [email_usuario, setEmail_usuario] = useState("");
 
     const callAPI = () => {
-        fetch('http://localhost:4000/signin', {
-            method: 'POST',
-            body: JSON.stringify({
-                nombre_usuario: nombre_usuario,
-                contrasena_usuario: contrasena_usuario,
-                apellido_usuario: apellido_usuario,
-                email_usuario: email_usuario
-            }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-        history.push('/posts');
-        window.alert('Usuario Creado')
+        fetch(`http://localhost:4000/signin/${email_usuario}`)
+            .then(res => res.json())
+            .then(res => {
+                if (res.boolean) {
+                    fetch('http://localhost:4000/signin', {
+                        method: 'POST',
+                        body: JSON.stringify({
+                            nombre_usuario: nombre_usuario,
+                            contrasena_usuario: contrasena_usuario,
+                            apellido_usuario: apellido_usuario,
+                            email_usuario: email_usuario
+                        }),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    history.push('/posts');
+                    window.alert('Usuario Creado')
+                } else {
+                    window.alert('El correo ya esta registrado')
+                }
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     const onCreate = () => {
@@ -84,7 +95,7 @@ export default function SignUp() {
                                     </ReactBootStrap.Button>
                         </ReactBootStrap.Form.Group>
                         <ReactBootStrap.Form.Group>
-                            <ReactBootStrap.Button variant="success" type="submit" onClick={onCreate}>
+                            <ReactBootStrap.Button variant="success" onClick={onCreate}>
                                 Crear una cuenta
                                     </ReactBootStrap.Button>
                         </ReactBootStrap.Form.Group>

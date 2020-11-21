@@ -3,22 +3,7 @@ const router = express.Router();
 const connection = require('../database');
 
 router.get("/", (req, res) => {
-    const sql = 'SELECT * FROM usuario';
-
-    connection.query(sql, (error, results) => {
-
-        if (error) throw error;
-        if (results.length > 0) {
-
-            res.json(results);
-
-        } else {
-
-            res.send('No hay resultados')
-
-        }
-
-    });
+    res.send('API funcionando')
 });
 
 router.post("/signin", async (req, res) => {
@@ -32,12 +17,28 @@ router.post("/signin", async (req, res) => {
     const rows = await connection.query('SELECT * FROM usuario where email_usuario = ?', email_usuario);
 
     if (rows.length > 0) {
-        res.json({ boolean: false });
+        res.send('false');
     } else {
         await connection.query('INSERT INTO usuario set ?', [newUser]);
+    }
+});
+
+router.get("/signin/:email", async (req, res) => {
+    const { email } = req.params
+
+    const rows = await connection.query('SELECT * FROM usuario WHERE email_usuario = ?', email);
+
+    if (rows.length > 0) {
+        res.json({ boolean: false });
+    } else {
         res.json({ boolean: true });
     }
 });
+
+router.get('/login/:email', async (req, res) => {
+    const { email } = req.params;
+    res.json(await connection.query('SELECT * FROM usuario WHERE email_usuario = ?', email));
+})
 
 
 module.exports = router;
