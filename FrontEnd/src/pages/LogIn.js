@@ -33,11 +33,11 @@ export default function Login() {
     })
 
     const callAPI = e => {
-        fetch(`http://localhost:4000/login/${email_usuario}`)
+        fetch(`http://localhost:4000/login/${email_usuario}/${contrasena_usuario}`)
             .then(res => res.json())
             .then(res => {
 
-                if (res[0].contrasena_usuario === contrasena_usuario) {
+                if (res[1].validPass) {
 
                     cookies.set('id_usuario', res[0].id_usuario, { path: "/" })
                     cookies.set('nombre_usuario', res[0].nombre_usuario, { path: "/" })
