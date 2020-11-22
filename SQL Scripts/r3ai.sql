@@ -119,6 +119,25 @@ insert into publicacion (titulo_publicacion, img_publicacion, body_publicacion, 
 insert into publicacion (titulo_publicacion, img_publicacion, body_publicacion, fecha_publicacion, id_usuario) values ('array', 'http://dummyimage.com/500x500.png/5fa2dd/ffffff', 'cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius nulla facilisi cras non velit nec nisi', '2020-02-10 22:14:48', 5);
 
 
-    
+#-------------------------------------------------------------------------------------------------------------   
+#inserts de la tabla Comentario
+
+select * from comentario;
+
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (1, 'faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus', '2019-03-19 19:41:01', 1, 1);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (2, 'lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id', '2020-10-04 07:09:39', 2, 2);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (3, 'nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat', '2020-05-12 15:39:03', 3, 3);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (4, 'eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim', '2020-07-03 14:14:37', 4, 4);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (5, 'nec molestie sed justo pellentesque viverra pede ac diam cras pellentesque volutpat dui maecenas tristique est', '2019-04-22 20:34:57', 5, 5);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (6, 'orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor', '2019-08-20 22:40:23', 1, 6);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (7, 'consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere', '2020-07-17 07:57:46', 2, 7);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (8, 'eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat', '2019-10-03 04:53:26', 3, 8);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (9, 'pede ac diam cras pellentesque volutpat dui maecenas tristique est', '2019-01-31 07:07:51', 4, 9);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (10, 'augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia', '2019-11-25 01:37:01', 5, 10);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (11, 'nonummy integer non velit donec diam neque vestibulum eget vulputate ut', '2019-02-06 20:52:17', 1, 11);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (12, 'volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus', '2020-03-02 05:00:33', 2, 12);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (13, 'morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis', '2019-03-11 04:35:31', 3, 13);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (14, 'cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque', '2020-10-14 09:48:45', 4, 14);
+insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (15, 'nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam', '2020-01-29 21:19:05', 5, 15);
     
     
