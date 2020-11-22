@@ -6,7 +6,7 @@ export default class Publicar extends React.Component {
     render() {
         return (
             <div>
-                        <div className="">
+                 <div className="">
                             <div className="caja">
                             </div>
                             <div className="comentario">
@@ -19,10 +19,10 @@ export default class Publicar extends React.Component {
                                         <Button variant="success" type="submit">
                                             Publicar
                                         </Button>
-                                    </Form>
-                                </div>
-                            </div>
-                        </div>
+                                 </Form>
+                          </div>
+                       </div>
+                 </div>
           </div>
         )
     }
