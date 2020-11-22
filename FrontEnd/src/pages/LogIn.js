@@ -26,12 +26,6 @@ export default function Login() {
     const [email_usuario, setEmail_usuario] = useState("");
     const history = useHistory();
 
-    useEffect(() => {
-        if (cookies.get('usuario')) {
-            history.push("/inicio")
-        }
-    })
-
     const callAPI = e => {
         fetch(`http://localhost:4000/login/${email_usuario}/${contrasena_usuario}`)
             .then(res => res.json())

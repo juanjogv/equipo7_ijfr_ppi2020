@@ -16,6 +16,7 @@ require('dotenv').config()
 
 //Rutas
 app.use(require('./routes/autentication'));
+app.use(require('./routes/posts'));
 
 
 //Iniciar servidor
