@@ -13,7 +13,7 @@ export default class Publicar extends React.Component {
                                 <div className="Form">
                                     <Form>
                                         <Form.Group controlId="formBasicEmail">
-                                            <Form.Control type="text" placeholder="Enter your commentary" />
+                                            <Form.Control type="txt" placeholder="Enter your commentary" />
                                               <Form.File id="exampleFormControlFile1" label="" />     
                                         </Form.Group>
                                         <Button variant="success" type="submit">
