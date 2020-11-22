@@ -14,7 +14,7 @@ export default class Post extends Component {
     render() {
         return (
             <div>
-                <h1 className="publicaciones">Publicaciones</h1>
+                <h1 className="publicaciones"></h1>
                 {
                     this.state.posts.map(post => {
                         return <div className="contenedor" key={post.id}>
