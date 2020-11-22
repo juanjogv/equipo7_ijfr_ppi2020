@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
-import posts from '../sample/MOCK_DATA.json';
 import '../styles/Post.css';
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
+var posts;
 
 export default class Post extends Component {
+
 
     state = {
         posts: posts,
     }
+
+    componentDidMount() {
+        this.callAPI();
+    }
+
+    callAPI() {
+        fetch('http://localhost:4000/posts')
+            .then(res => res.json())
+            .then(res => res = posts)
+    }
+
+
 
     render() {
         return (
@@ -17,12 +30,12 @@ export default class Post extends Component {
                 <h1 className="publicaciones"></h1>
                 {
                     this.state.posts.map(post => {
-                        return <div className="contenedor" key={post.id}>
+                        return <div className="contenedor" key={post.id_publicacion}>
                             <div className="caja">
-                                <h1>{post.title}</h1>
-                                <p>{post.body}</p>
+                                <h1>{post.titulo_publicacion}</h1>
+                                <p>{post.body_publicacion}</p>
                                 <div className="imagen">
-                                    <img src={post.url} alt={post.imageId} className="img-fluid" ></img>
+                                    <img src={post.img_publicacion} alt={post.id_publicacion} className="img-fluid" ></img>
                                 </div>
                             </div>
                             <div className="comentario">
