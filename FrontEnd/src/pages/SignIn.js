@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as ReactBootStrap from 'react-bootstrap';
 import logo from '../img/r3ai_logo.png';
 import { useHistory } from 'react-router-dom';
+import Cookies from 'universal-cookie';
+
+const cookies = new Cookies();
 
 export default function SignUp() {
 
@@ -12,6 +15,12 @@ export default function SignUp() {
         width: '100%',
         height: '100%'
     }
+
+    useEffect(() => {
+        if (cookies.get('email_usuario')) {
+            window.location.href = "../profile"
+        }
+    })
 
     const [nombre_usuario, setNombre_usuario] = useState("");
     const [contrasena_usuario, setContrasena_usuario] = useState("");
