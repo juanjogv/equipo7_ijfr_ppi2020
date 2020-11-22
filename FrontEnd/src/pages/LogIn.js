@@ -15,6 +15,11 @@ export default function Login() {
         height: '100%'
     }
 
+    useEffect(() => {
+        if (cookies.get('email_usuario')) {
+            window.location.href = "../profile"
+        }
+    })
 
 
     const [contrasena_usuario, setContrasena_usuario] = useState("");
@@ -33,6 +38,11 @@ export default function Login() {
             .then(res => {
 
                 if (res[0].contrasena_usuario === contrasena_usuario) {
+
+                    cookies.set('id_usuario', res[0].id_usuario, { path: "/" })
+                    cookies.set('nombre_usuario', res[0].nombre_usuario, { path: "/" })
+                    cookies.set('apellido_usuario', res[0].apellido_usuario, { path: "/" })
+                    cookies.set('email_usuario', res[0].email_usuario, { path: "/" })
                     history.push("/profile")
                 } else {
                     window.alert('Contraseña invalida')

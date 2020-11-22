@@ -3,9 +3,18 @@ import * as ReactBootStrap from 'react-bootstrap';
 import '../index.css';
 import logo from '../img/r3ai_logo.png';
 import '../introblocksresponsive.css';
+import Cookies from 'universal-cookie';
 
+const cookies = new Cookies();
 
 export default class NavBar extends Component {
+
+    componentDidMount() {
+        if (cookies.get('email_usuario')) {
+            window.location.href = "../profile"
+        }
+    }
+
     render() {
         return (
             <div>
