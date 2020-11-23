@@ -2,26 +2,21 @@ import React, { Component } from 'react';
 import '../styles/Post.css';
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import Cookies from 'universal-cookie';
 
-var posts;
+const cookies = new Cookies();
 
 export default class Post extends Component {
 
-
     state = {
-        posts: posts,
+        posts: []
     }
 
     componentDidMount() {
-        this.callAPI();
-    }
-
-    callAPI() {
-        fetch('http://localhost:4000/posts')
+        fetch(`http://localhost:4000/posts/${cookies.get('id_usuario')}`)
             .then(res => res.json())
-            .then(res => res = posts)
+            .then(res => this.setState({ posts: res }));
     }
-
 
 
     render() {
