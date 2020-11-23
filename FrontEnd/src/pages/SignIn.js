@@ -47,7 +47,7 @@ export default function SignUp() {
                     cookies.set('nombre_usuario', nombre_usuario, { path: "/" })
                     cookies.set('apellido_usuario', apellido_usuario, { path: "/" })
                     cookies.set('email_usuario', email_usuario, { path: "/" })
-                    history.push("/profile")
+                    history.push("/login")
                     window.alert('Usuario Creado')
                 } else {
                     window.alert('El correo ya esta registrado')
