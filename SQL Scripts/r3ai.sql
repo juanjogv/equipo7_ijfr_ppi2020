@@ -8,9 +8,6 @@
 create database r3ai;
 use r3ai;
 
-drop database r3ai;
-select * from usuario;
-
 #-------------------------------------------------------------------------------------------------------------   
 #Creacion de la tabla comentario
 CREATE TABLE comentario(
@@ -63,9 +60,7 @@ ALTER TABLE publicacion
 ALTER TABLE publicacion
     MODIFY id_publicacion INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 1;
     
-drop table publicacion;
-    
-    
+        
     
 #-------------------------------------------------------------------------------------------------------------   
 #Creacion de la tabla usuario
@@ -90,7 +85,6 @@ ALTER TABLE usuario
 #-------------------------------------------------------------------------------------------------------------   
 #inserts de la tabla Publicaciones
 
-select * from publicacion;
 
 insert into publicacion (titulo_publicacion, img_publicacion, body_publicacion, fecha_publicacion, id_usuario) values ('User-centric', 'http://dummyimage.com/500x500.png/dddddd/000000', 'posuere cubilia curae nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum ac', '2020-04-26 00:59:10', 1);
 insert into publicacion (titulo_publicacion, img_publicacion, body_publicacion, fecha_publicacion, id_usuario) values ('mission-critical', 'http://dummyimage.com/500x500.png/ff4444/ffffff', 'aliquet maecenas leo odio condimentum id luctus nec molestie sed', '2020-09-27 06:58:03', 2);
@@ -122,7 +116,7 @@ insert into publicacion (titulo_publicacion, img_publicacion, body_publicacion, 
 #-------------------------------------------------------------------------------------------------------------   
 #inserts de la tabla Comentario
 
-select * from comentario;
+
 
 insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (1, 'faucibus accumsan odio curabitur convallis duis consequat dui nec nisi volutpat eleifend donec ut dolor morbi vel lectus', '2019-03-19 19:41:01', 1, 1);
 insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (2, 'lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id', '2020-10-04 07:09:39', 2, 2);
@@ -139,5 +133,18 @@ insert into comentario (id_comentario, contenido_comentario, fecha_comentario, i
 insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (13, 'morbi odio odio elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis', '2019-03-11 04:35:31', 3, 13);
 insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (14, 'cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque', '2020-10-14 09:48:45', 4, 14);
 insert into comentario (id_comentario, contenido_comentario, fecha_comentario, id_usuario, id_publicacion) values (15, 'nulla mollis molestie lorem quisque ut erat curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam', '2020-01-29 21:19:05', 5, 15);
-    
+
+
+#-------------------------------------------------------------------------------------------------------------   
+#Updates de la tabla Usuario
+
+
+UPDATE usuario SET foto_usuario = "https://robohash.org/praesentiumomnisperferendis.jpg?size=150x150&set=set1" WHERE id_usuario = 1;
+UPDATE usuario SET foto_usuario = "https://robohash.org/utdoloribusquia.jpg?size=150x150&set=set1" WHERE id_usuario = 2;
+UPDATE usuario SET foto_usuario = "https://robohash.org/molestiaeetdelectus.jpg?size=150x150&set=set1" WHERE id_usuario = 3;
+UPDATE usuario SET foto_usuario = "https://robohash.org/fugiataddoloribus.jpg?size=150x150&set=set1" WHERE id_usuario = 4;
+UPDATE usuario SET foto_usuario = "https://robohash.org/temporaquisquamet.jpg?size=150x150&set=set1" WHERE id_usuario = 5;
+
+SELECT * FROM usuario ORDER BY escaneos_usuario desc;
+
     
