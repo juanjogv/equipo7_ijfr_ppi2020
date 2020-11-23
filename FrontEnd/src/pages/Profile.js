@@ -15,7 +15,9 @@ export default class Profile extends Component {
 
     state = {
         nombre_usuario: cookies.get('nombre_usuario'),
-        apellido_usuario: cookies.get('apellido_usuario')
+        apellido_usuario: cookies.get('apellido_usuario'),
+        escaneos_usuario: '',
+        foto_usuario: Profile_pp
 
     }
 
@@ -24,6 +26,15 @@ export default class Profile extends Component {
             window.alert('Necesita iniciar sesion para usar esta función')
             window.location.href = "../login"
         }
+
+        fetch(`https://backend-steel-rho.vercel.app/escaneos/${cookies.get('id_usuario')}`)
+            .then(res => res.json())
+            .then(res => this.setState({ escaneos_usuario: res[0].escaneos_usuario }));
+
+        fetch(`https://backend-steel-rho.vercel.app/foto/${cookies.get('id_usuario')}`)
+            .then(res => res.json())
+            .then(res => this.setState({ foto_usuario: res[0].foto_usuario }))
+
     }
 
     render() {
@@ -44,7 +55,7 @@ export default class Profile extends Component {
                             <img src={Profile_bgUp} style={{ width: '100%', height: '180px' }} alt="bgUp" />
                         </div>
                         <div>
-                            <img src={Profile_pp} style={{ width: '180px', borderRadius: '50%', border: '3px solid white', marginTop: '90px' }} alt="pp" />
+                            <img src={this.state.foto_usuario} style={{ width: '180px', borderRadius: '50%', border: '3px solid white', marginTop: '90px' }} alt="pp" />
                             <h3>{this.state.nombre_usuario} {this.state.apellido_usuario}</h3>
                         </div>
                     </Col>
@@ -54,7 +65,7 @@ export default class Profile extends Component {
                     <Row>
                         <Col lg={4} md={3} xs={12} />
                         <Col lg={4} md={6} xs={12}>
-                            <Link to="/">
+                            <Link to="/reader">
                                 <Button variant="" type="submit" style={{ background: '#00b33e', width: '100%' }}>
                                     <strong>
                                         <svg
@@ -86,7 +97,7 @@ export default class Profile extends Component {
                         <Col lg={2} md={4} xs={12}>
                             <div className="p-1" style={{ background: '#00b33e', width: '100%', borderRadius: '5px' }}>
                                 <strong>
-                                    Escaneos: 15
+                                    Escaneos: {this.state.escaneos_usuario}
                                 </strong>
                             </div>
                         </Col>

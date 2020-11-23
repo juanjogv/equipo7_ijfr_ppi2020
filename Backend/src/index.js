@@ -17,6 +17,9 @@ require('dotenv').config()
 //Rutas
 app.use(require('./routes/autentication'));
 app.use(require('./routes/posts'));
+app.use(require('./routes/profile'));
+app.use(require('./routes/scanner'));
+app.use(require('./routes/ranking'));
 
 
 //Iniciar servidor
