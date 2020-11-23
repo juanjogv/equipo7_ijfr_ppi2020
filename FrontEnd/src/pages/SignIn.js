@@ -28,11 +28,11 @@ export default function SignUp() {
     const [email_usuario, setEmail_usuario] = useState("");
 
     const callAPI = () => {
-        fetch(`http://localhost:4000/signin/${email_usuario}`)
+        fetch(`https://backend-steel-rho.vercel.app/signin/${email_usuario}`)
             .then(res => res.json())
             .then(res => {
                 if (res.boolean) {
-                    fetch('http://localhost:4000/signin', {
+                    fetch('https://backend-steel-rho.vercel.app/signin', {
                         method: 'POST',
                         body: JSON.stringify({
                             nombre_usuario: nombre_usuario,

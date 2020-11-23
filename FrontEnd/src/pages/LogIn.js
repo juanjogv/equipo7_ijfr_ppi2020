@@ -27,7 +27,7 @@ export default function Login() {
     const history = useHistory();
 
     const callAPI = e => {
-        fetch(`http://localhost:4000/login/${email_usuario}/${contrasena_usuario}`)
+        fetch(`https://backend-steel-rho.vercel.app/login/${email_usuario}/${contrasena_usuario}`)
             .then(res => res.json())
             .then(res => {
 

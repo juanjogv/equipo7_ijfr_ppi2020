@@ -13,7 +13,7 @@ export default class Post extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:4000/posts/${cookies.get('id_usuario')}`)
+        fetch(`https://backend-steel-rho.vercel.app/posts/${cookies.get('id_usuario')}`)
             .then(res => res.json())
             .then(res => this.setState({ posts: res }));
     }
