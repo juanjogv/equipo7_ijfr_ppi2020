@@ -15,8 +15,8 @@ app.use(cors())
 require('dotenv').config()
 
 //Rutas
-app.use(require('./src/routes/autentication'));
-app.use(require('./src/routes/posts'));
+app.use(require('./routes/autentication'));
+app.use(require('./routes/posts'));
 
 
 //Iniciar servidor
