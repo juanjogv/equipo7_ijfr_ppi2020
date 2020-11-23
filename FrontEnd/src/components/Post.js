@@ -3,9 +3,6 @@ import '../styles/Post.css';
 import { Form } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 
-var posts;
-
-
 export default class Post extends Component {
 
     state = {

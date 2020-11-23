@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar2 from '../components/NavBar2';
+import Post from '../components/post_perfil';
 import { Row, Col, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 //images
@@ -92,6 +93,7 @@ export default class Profile extends Component {
                         <Col lg={5} md={4} xs={12} />
                     </Row>
                 </div>
+                <Post />
             </div>
         )
     }
