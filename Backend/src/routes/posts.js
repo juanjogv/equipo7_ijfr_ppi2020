@@ -13,4 +13,5 @@ router.get("/posts/:id_usuario", async (req, res) => {
     res.json(rows)
 });
 
+
 module.exports = router;
