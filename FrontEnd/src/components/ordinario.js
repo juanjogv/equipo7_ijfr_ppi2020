@@ -13,7 +13,7 @@ export default class Ordinario extends React.Component{
           </Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
-          <ListGroupItem>Estos residuos son los que por lo general se desechan en los domicilios</ListGroupItem>
+          <ListGroupItem>Estos residuos son los que por lo general se desechan en los domicilios y se depositan en la caneca verde</ListGroupItem>
           <ListGroupItem>Tambien se pueden catalogar de residuos ordinarios los que son de desecho industrial o de limpieza de areas publicas</ListGroupItem>
         </ListGroup>
           <Button target="_blank" href="http://proyectos.andi.com.co/es/GAI/GuiInv/MedAmb/Paginas/GIRS.aspx" variant="success">Mas Informacion</Button> 
