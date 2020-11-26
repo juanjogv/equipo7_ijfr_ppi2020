@@ -24,6 +24,6 @@ connection.getConnection((err, connection) => {
 });
 
 //Convertir callbacks en promesas
-connection.query = promisify(connection.query)
+connection.query = promisify(connection.query);
 
 module.exports = connection;
