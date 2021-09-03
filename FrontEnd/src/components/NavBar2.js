@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import logo from '../img/r3ai_logo.png';
 import * as ReactBootStrap from 'react-bootstrap';
 import camara from '../img/NavBar2/camara.png';

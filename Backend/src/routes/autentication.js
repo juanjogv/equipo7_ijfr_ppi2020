@@ -7,6 +7,8 @@ router.get("/", (req, res) => {
     res.send('API funcionando')
 });
 
+router.post
+
 router.post("/signin", async (req, res) => {
     const { nombre_usuario, contrasena_usuario, apellido_usuario, email_usuario } = req.body
     const newUser = {
