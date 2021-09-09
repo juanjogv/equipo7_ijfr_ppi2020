@@ -1,7 +1,6 @@
 create database r3ai;
 use r3ai;
 
-#Creacion de la tabla usuario
 CREATE TABLE usuario(
     id_usuario serial PRIMARY KEY,
     nombre_usuario VARCHAR(100) NOT NULL,
@@ -10,35 +9,32 @@ CREATE TABLE usuario(
     email_usuario VARCHAR(100) NOT NULL,
     foto_usuario VARCHAR(100),
 	descripcion_usuario VARCHAR(500),
-    escaneos_usuario INT(11) NOT NULL
-);  
+    escaneos_usuario INT NOT NULL
+);
 
-#Creacion de la tabla Publicacion
 CREATE TABLE publicacion(
     id_publicacion serial PRIMARY KEY,
     titulo_publicacion VARCHAR(50) NOT NULL,
     img_publicacion VARCHAR(200) NOT NULL,
     fecha_publicacion  TIMESTAMP DEFAULT current_timestamp NOT NULL,
-    id_usuario INT(11) NOT NULL,
+    id_usuario INT NOT NULL,
 	CONSTRAINT fk_p_usuario FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );
 
-#Creacion de la tabla comentario
 CREATE TABLE comentario(
-    id_comentario serial PRYMARY KEY,
-    contenido_comentario VARCHAR(50) NOT NULL,  
-    fecha_comentario  TIMESTAMP DEFAULT current_timestamp NOT NULL,
-    id_usuario INT(11) NOT NULL,
+    id_comentario serial PRIMARY KEY,
+    contenido_comentario VARCHAR(50) NOT NULL,
+    fecha_comentario TIMESTAMP DEFAULT current_timestamp NOT NULL,
+    id_usuario INT NOT NULL,
 	CONSTRAINT fk_c_usuario FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
-	id_publicacion INT(11) NOT NULL,
+	id_publicacion INT NOT NULL,
 	CONSTRAINT fk_c_publicacion FOREIGN KEY (id_publicacion) REFERENCES publicacion(id_publicacion)
 );
 
-#Creacion de la tabla Escaneo
 CREATE TABLE escaneo(
     id_escaneo SERIAL PRIMARY KEY,
-    fecha_escaneo  TIMESTAMP DEFAULT current_timestamp NOT NULL,
-    id_usuario INT(11) NOT NULL,
+    fecha_escaneo TIMESTAMP DEFAULT current_timestamp NOT NULL,
+    id_usuario INT NOT NULL,
 	CONSTRAINT fk_e_usuario FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
 );
 
