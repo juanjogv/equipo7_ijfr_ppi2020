@@ -1,13 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const connection = require('../database');
-const helpers = require('../lib/helpers');
-
-router.get("/", (req, res) => {
-    res.send('API funcionando')
-});
-
-router.post
+const authController = require('../controllers/authController')
 
 router.post("/signin", async (req, res) => {
     const { nombre_usuario, contrasena_usuario, apellido_usuario, email_usuario } = req.body
@@ -39,18 +32,10 @@ router.get("/signin/:email", async (req, res) => {
     }
 });
 
-router.get('/login/:email/:userpass', async (req, res) => {
-    const { email, userpass } = req.params;
-    const rows = await connection.query('SELECT * FROM usuario WHERE email_usuario = ?', email);
-
-    if (rows.length > 0) {
-
-        const savedpass = rows[0].contrasena_usuario;
-        const validPass = await helpers.matchPassword(userpass, savedpass);
-        rows.push({ validPass: validPass })
-        res.json(rows);
-
-    }
+router.post('/login', async (req, res) => {
+    const { email, userpass } = req.body;
+    const test = await authController.login(email, userpass);
+    res.json(test);
 })
 
 

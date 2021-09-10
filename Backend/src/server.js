@@ -13,9 +13,10 @@ server.set('port', port);
 //Middlewares
 server.use(morgan('dev'));
 server.use(cors())
+server.use(express.json())
 
 //Rutas
-//server.use(require('./routes/autentication'));
+server.use(require('./lib/interfaces/routes/autentication'));
 //server.use(require('./routes/posts'));
 //server.use(require('./routes/profile'));
 //server.use(require('./routes/scanner'));
