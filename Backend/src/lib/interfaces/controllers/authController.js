@@ -1,12 +1,8 @@
 const { usuario } = require("../../infrastructure/relationModels")
-const {
-  Sequelize
-} = require("sequelize");
 const { matchPassword, encryptPassword } = require("../../utils/helpers")
 
 module.exports = {
   async login(req) {
-
     const { email_usuario, contrasena_usuario } = req.body;
 
     const user = await usuario.findOne({

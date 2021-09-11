@@ -17,7 +17,7 @@ server.use(express.json())
 
 //Rutas
 server.use(require('./lib/interfaces/routes/autentication'));
-//server.use(require('./routes/posts'));
+server.use(require('./lib/interfaces/routes/posts'));
 //server.use(require('./routes/profile'));
 //server.use(require('./routes/scanner'));
 //server.use(require('./routes/ranking'));

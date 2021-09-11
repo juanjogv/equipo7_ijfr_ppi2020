@@ -1,10 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const connection = require('../database');
+const router = require('express').Router();
+const postController = require('../controllers/postController')
 
 router.get("/posts", async (req, res) => {
-    const rows = await connection.query('SELECT * FROM publicacion');
-    res.json(rows)
+
+    const posts = await postController.getPosts();
+    res.json(posts)
 });
 
 module.exports = router;
