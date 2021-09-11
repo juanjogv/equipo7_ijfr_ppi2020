@@ -11,16 +11,17 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(100),
       allowNull: false
     },
-    contrasena_usuario: {
-      type: DataTypes.STRING(60),
-      allowNull: false
-    },
     apellido_usuario: {
       type: DataTypes.STRING(100),
       allowNull: false
     },
     email_usuario: {
       type: DataTypes.STRING(100),
+      allowNull: false,
+      unique: "usuario_email_usuario_key"
+    },
+    contrasena_usuario: {
+      type: DataTypes.STRING(60),
       allowNull: false
     },
     foto_usuario: {
@@ -41,6 +42,13 @@ module.exports = function(sequelize, DataTypes) {
     schema: 'public',
     timestamps: false,
     indexes: [
+      {
+        name: "usuario_email_usuario_key",
+        unique: true,
+        fields: [
+          { name: "email_usuario" },
+        ]
+      },
       {
         name: "usuario_pkey",
         unique: true,
