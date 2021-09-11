@@ -7,18 +7,18 @@ const { matchPassword, encryptPassword } = require("../../utils/helpers")
 module.exports = {
   async login(req) {
 
-    const { email, userpass } = req.body;
+    const { email_usuario, contrasena_usuario } = req.body;
 
     const user = await usuario.findOne({
       attributes: ["email_usuario", "contrasena_usuario"],
       where: {
-        email_usuario: email,
+        email_usuario
       }
     });
 
     if (!user) throw "EMAIL_NOT_FOUND"
 
-    if (!await matchPassword(userpass, user.contrasena_usuario)) throw "EMAIL_AND_PASS_NOT_MATCH"
+    if (!await matchPassword(contrasena_usuario, user.contrasena_usuario)) throw "EMAIL_AND_PASS_NOT_MATCH"
   },
 
   async signin(req) {
