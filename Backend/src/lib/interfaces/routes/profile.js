@@ -1,23 +1,19 @@
-const express = require('express');
-const router = express.Router();
-const connection = require('../database');
+const router = require("express").Router();
+const profileController = require("../controllers/profileController");
 
-router.get("/posts/:id_usuario", async (req, res) => {
-    const { id_usuario } = req.params
-    const rows = await connection.query('SELECT * FROM publicacion WHERE id_usuario = ?', id_usuario);
-    res.json(rows)
+router.post("/profile/posts", async (req, res) => {
+  const posts = await profileController.findPosts(req);
+  res.json(posts);
 });
 
-router.get("/escaneos/:id_usuario", async (req, res) => {
-    const { id_usuario } = req.params
-    const rows = await connection.query('SELECT escaneos_usuario FROM usuario WHERE id_usuario = ?', id_usuario);
-    res.json(rows)
+router.post("/profile/escaneos", async (req, res) => {
+  const escaneos = await profileController.findEscaneos(req);
+  res.json(escaneos);
 });
 
-router.get("/foto/:id_usuario", async (req, res) => {
-    const { id_usuario } = req.params
-    const rows = await connection.query('SELECT foto_usuario FROM usuario WHERE id_usuario = ?', id_usuario);
-    res.json(rows)
+router.post("/profile/foto", async (req, res) => {
+  const foto = await profileController.findFoto(req);
+  res.json(foto);
 });
 
 module.exports = router;

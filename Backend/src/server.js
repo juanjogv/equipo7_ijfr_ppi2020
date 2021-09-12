@@ -1,29 +1,28 @@
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
-const { port } = require('./config');
-
+const express = require("express");
+const cors = require("cors");
+const morgan = require("morgan");
+const { port } = require("./config");
 
 //Inicializacion
 const server = express();
 
 //Settings
-server.set('port', port);
+server.set("port", port);
 
 //Middlewares
-server.use(morgan('dev'));
-server.use(cors())
-server.use(express.json())
+server.use(morgan("dev"));
+server.use(cors());
+server.use(express.json());
 
 //Rutas
-server.use(require('./lib/interfaces/routes/autentication'));
-server.use(require('./lib/interfaces/routes/posts'));
-//server.use(require('./routes/profile'));
+server.use(require("./lib/interfaces/routes/autentication"));
+server.use(require("./lib/interfaces/routes/posts"));
+server.use(require("./lib/interfaces/routes/profile"));
 //server.use(require('./routes/scanner'));
 //server.use(require('./routes/ranking'));
 
 server.get("/", (req, res) => {
-    res.json({ message: "Welcome." });
+  res.json({ message: "Welcome." });
 });
 
 module.exports = server;
