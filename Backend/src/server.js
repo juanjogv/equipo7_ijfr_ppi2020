@@ -18,8 +18,8 @@ server.use(express.json());
 server.use(require("./lib/interfaces/routes/autentication"));
 server.use(require("./lib/interfaces/routes/posts"));
 server.use(require("./lib/interfaces/routes/profile"));
-//server.use(require('./routes/scanner'));
-//server.use(require('./routes/ranking'));
+server.use(require("./lib/interfaces/routes/scanner"));
+server.use(require("./lib/interfaces/routes/ranking"));
 
 server.get("/", (req, res) => {
   res.json({ message: "Welcome." });

@@ -1,10 +1,9 @@
-const express = require('express');
-const router = express.Router();
-const connection = require('../database');
+const router = require("express").Router();
+const rankingController = require("../controllers/rankingController");
 
 router.get("/ranking", async (req, res) => {
-    const rows = await connection.query('SELECT * FROM usuario ORDER BY escaneos_usuario desc');
-    res.json(rows)
+  const ranking = await rankingController.getRanking();
+  res.json(ranking);
 });
 
 module.exports = router;
