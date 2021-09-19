@@ -1,37 +1,36 @@
 import React, { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
 import { Link, useHistory } from "react-router-dom";
-import Cookies from "universal-cookie";
 
 import logo from "../img/r3ai_logo.png";
 
 export default function SignUp() {
   const [usuario, setUsuario] = useState({ nombre: "", apellido: "", email: "", contrasena: "" });
-  const cookies = new Cookies();
+  const [cookies, setCookie] = useCookies(["user_email"]);
   const history = useHistory();
 
   useEffect(() => {
-    if (cookies.get("email_usuario")) {
-      window.location.href = "../profile";
+    if (cookies.user_email) {
+      history.push("/profile");
     }
-  });
+  }, []);
 
-  const callAPI = () => {
-    fetch(`https://backend-steel-rho.vercel.app/signin/${usuario.email}`)
+  const callAPI = (e) => {
+    e.preventDefault();
+    fetch(`${process.env.REACT_APP_API_URL}/signin/${usuario.email}`)
       .then((res) => res.json())
       .then((res) => {
         if (res.boolean) {
-          fetch("https://backend-steel-rho.vercel.app/signin", {
+          fetch(`${process.env.REACT_APP_API_URL}/signin`, {
             method: "POST",
             body: JSON.stringify(usuario),
             headers: {
               "Content-Type": "application/json",
             },
           });
-          cookies.set("nombre_usuario", usuario.nombre, { path: "/" });
-          cookies.set("apellido_usuario", usuario.apellido, { path: "/" });
-          cookies.set("email_usuario", usuario.email, { path: "/" });
-          history.push("/login");
+          setCookie("email_usuario", usuario.email, { path: "/" });
           window.alert("Usuario Creado");
+          history.push("/profile");
         } else {
           window.alert("El correo ya esta registrado");
         }
@@ -39,10 +38,6 @@ export default function SignUp() {
       .catch((err) => {
         console.log(err);
       });
-  };
-
-  const onCreate = () => {
-    callAPI();
   };
 
   return (
@@ -72,7 +67,7 @@ export default function SignUp() {
             <label className="form-label">Contraseña</label>
             <input className="form-control" type="password" placeholder="Ingresa tu Contraseña" value={usuario.contrasena} onChange={(e) => setUsuario({ ...usuario, contrasena: e.target.value })} />
           </div>
-          <button className="btn btn-primary me-5" onClick={onCreate}>
+          <button className="btn btn-primary me-5" onClick={callAPI}>
             Crear una cuenta
           </button>
           <Link className="btn btn-primary ms-5" to="/login">

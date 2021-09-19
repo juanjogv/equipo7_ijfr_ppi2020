@@ -1,29 +1,29 @@
 import React, { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
 import { Link, useHistory } from "react-router-dom";
+
 import logo from "../img/r3ai_logo.png";
-import Cookies from "universal-cookie";
 
 export default function Login() {
   const [usuario, setUsuario] = useState({ email: "", contrasena: "" });
-  const cookies = new Cookies();
+  const [cookies, setCookie] = useCookies(["user_email"]);
   const history = useHistory();
 
   useEffect(() => {
-    if (cookies.get("email_usuario")) {
-      window.location.href = "../profile";
+    console.log(process.env);
+    if (cookies.user_email) {
+      history.push("/profile");
     }
-  });
+  }, []);
 
   const callAPI = (e) => {
-    fetch(`https://backend-steel-rho.vercel.app/login/${usuario.email}/${usuario.contrasena}`)
+    e.preventDefault();
+    fetch(`${process.env.REACT_APP_API_URL}/login/${usuario.email}/${usuario.contrasena}`)
       .then((res) => res.json())
       .then(
         (res) => {
           if (res[1].validPass) {
-            cookies.set("id_usuario", res[0].id_usuario, { path: "/" });
-            cookies.set("nombre_usuario", res[0].nombre_usuario, { path: "/" });
-            cookies.set("apellido_usuario", res[0].apellido_usuario, { path: "/" });
-            cookies.set("email_usuario", res[0].email_usuario, { path: "/" });
+            setCookie("email_usuario", usuario.email, { path: "/" });
             history.push("/profile");
           } else {
             window.alert("Contraseña invalida");
@@ -34,10 +34,6 @@ export default function Login() {
         }
       )
       .catch((error) => console.log(error));
-  };
-
-  const onCreate = () => {
-    callAPI();
   };
 
   return (
@@ -59,7 +55,7 @@ export default function Login() {
             <label className="form-label">Password</label>
             <input className="form-control" type="password" placeholder="Contraseña" value={usuario.contrasena} onChange={(e) => setUsuario({ ...usuario, contrasena: e.target.value })} />
           </div>
-          <button className="btn btn-primary me-5" onClick={onCreate}>
+          <button className="btn btn-primary me-5" onClick={callAPI}>
             Inicar sesión
           </button>
           <Link className="btn btn-primary ms-5" to="/signin">
