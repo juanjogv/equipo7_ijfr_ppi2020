@@ -10,7 +10,7 @@ export default class Post extends Component {
     }
 
     componentDidMount() {
-        fetch('https://backend-steel-rho.vercel.app/posts')
+        fetch('http://localhost:3000/posts')
             .then(res => res.json())
             .then(res => this.setState({ posts: res }))
     }
