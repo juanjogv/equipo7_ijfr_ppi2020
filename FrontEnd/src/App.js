@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import IntroBlocks from "./pages/IntroBlocks";
-// import LogIn from './pages/LogIn.js';
+import LogIn from "./pages/LogIn.js";
 // import SignIn from './pages/SignIn.js';
 // import Posts from './pages/Posts.js';
 // import Ranking from './pages/Ranking.js';
@@ -15,8 +15,9 @@ export default function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={IntroBlocks} />
+          <Route path="/login" component={LogIn} />
           {/* <Route path='/reader' component={QR_Reader} />
-          <Route path='/login' component={LogIn} />
+          
           <Route path='/signin' component={SignIn} />
           <Route path='/posts' component={Posts} />
           <Route path='/ranking' component={Ranking} />
