@@ -6,21 +6,23 @@ import axios from "axios";
 import logo from "../img/r3ai_logo.png";
 
 export default function SignUp() {
-  const [usuario, setUsuario] = useState({ nombre: "", apellido: "", email: "", contrasena: "" });
-  const [cookies, setCookie] = useCookies(["user_email"]);
+  const [usuario, setUsuario] = useState({ nombre_usuario: "", apellido_usuario: "", email_usuario: "", contrasena_usuario: "" });
+  const [cookies, setCookie] = useCookies(["email_usuario"]);
   const history = useHistory();
 
   useEffect(() => {
-    if (cookies.user_email) {
+    if (cookies.email_usuario) {
       history.push("/profile");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const callAPI = (e) => {
     e.preventDefault();
-    axios.post(`${process.env.REACT_APP_API_URL}/signin`).then((res) => {
+    console.log(usuario);
+    axios.post(`${process.env.REACT_APP_API_URL}/signin`, usuario).then((res) => {
       if (res.data) {
-        setCookie("email_usuario", usuario.email, { path: "/" });
+        setCookie("email_usuario", usuario.email_usuario, { path: "/" });
         window.alert("Usuario Creado");
         history.push("/profile");
       } else {
@@ -42,19 +44,43 @@ export default function SignUp() {
           </div>
           <div className="mb-3">
             <label className="form-label">Nombre</label>
-            <input className="form-control" type="text" placeholder="Ingresa tu nombre" value={usuario.nombre} onChange={(e) => setUsuario(e.target.value)} />
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Ingresa tu nombre"
+              value={usuario.nombre_usuario}
+              onChange={(e) => setUsuario({ ...usuario, nombre_usuario: e.target.value })}
+            />
           </div>
           <div className="mb-3">
             <label className="form-label">Apellido</label>
-            <input className="form-control" type="text" placeholder="Ingresa tu apellido" value={usuario.apellido} onChange={(e) => setUsuario(e.target.value)} />
+            <input
+              className="form-control"
+              type="text"
+              placeholder="Ingresa tu apellido"
+              value={usuario.apellido_usuario}
+              onChange={(e) => setUsuario({ ...usuario, apellido_usuario: e.target.value })}
+            />
           </div>
           <div className="mb-3">
             <label className="form-label">Email</label>
-            <input className="form-control" type="email" placeholder="Ingresa tu correo" value={usuario.email} onChange={(e) => setUsuario({ ...usuario, email: e.target.value })} />
+            <input
+              className="form-control"
+              type="email"
+              placeholder="Ingresa tu correo"
+              value={usuario.email_usuario}
+              onChange={(e) => setUsuario({ ...usuario, email_usuario: e.target.value })}
+            />
           </div>
           <div className="mb-3">
             <label className="form-label">Contraseña</label>
-            <input className="form-control" type="password" placeholder="Ingresa tu Contraseña" value={usuario.contrasena} onChange={(e) => setUsuario({ ...usuario, contrasena: e.target.value })} />
+            <input
+              className="form-control"
+              type="password"
+              placeholder="Ingresa tu Contraseña"
+              value={usuario.contrasena_usuario}
+              onChange={(e) => setUsuario({ ...usuario, contrasena_usuario: e.target.value })}
+            />
           </div>
           <button className="btn btn-primary me-5" onClick={callAPI}>
             Crear una cuenta
