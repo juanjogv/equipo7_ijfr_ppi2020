@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from "react";
-import * as ReactBootStrap from "react-bootstrap";
-import logo from "../img/r3ai_logo.png";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Cookies from "universal-cookie";
+
+import logo from "../img/r3ai_logo.png";
 
 const cookies = new Cookies();
 
 export default function SignUp() {
   const history = useHistory();
-  const StyleForm = {
-    position: "absolute",
-    backgroundColor: "rgb(240, 242, 245)",
-    width: "100%",
-    height: "100%",
-  };
 
   useEffect(() => {
     if (cookies.get("email_usuario")) {
@@ -62,81 +56,40 @@ export default function SignUp() {
   };
 
   return (
-    <div>
-      <ReactBootStrap.Row></ReactBootStrap.Row>
-      <ReactBootStrap.Row style={StyleForm} className="d-flex align-items-center justify-content-center">
-        <ReactBootStrap.Col md={2} xs={12}></ReactBootStrap.Col>
-        <ReactBootStrap.Col md={3} xs={12}>
-          <ReactBootStrap.Image src={logo} width="90%" fluid />
-          <h1>R3AI</h1>
-        </ReactBootStrap.Col>
-        <ReactBootStrap.Col
-          md={{ span: 5, offset: 0 }}
-          xs={12}
-          style={{ boxShadow: "1px 3px 3px 3px rgba(0, 0, 0, 0.1)", borderRadius: "3%", backgroundColor: "rgb(255, 255, 255)", paddingBottom: "2%" }}
-        >
-          <ReactBootStrap.Form>
-            <ReactBootStrap.Form.Label>
-              <h1>Registrarse</h1>
-            </ReactBootStrap.Form.Label>
-            <ReactBootStrap.Form.Group controlId="formBasicEmail">
-              <ReactBootStrap.Form.Label>Nombre</ReactBootStrap.Form.Label>
-              <ReactBootStrap.Form.Control
-                type="text"
-                placeholder="Ingresa tu nombre"
-                name="nombre_usuario"
-                onChange={(e) => setNombre_usuario(e.target.value)}
-                value={nombre_usuario}
-              />
-              <ReactBootStrap.Form.Text className="text-muted"></ReactBootStrap.Form.Text>
-            </ReactBootStrap.Form.Group>
-            <ReactBootStrap.Form.Group controlId="formBasicEmail">
-              <ReactBootStrap.Form.Label>Apellido</ReactBootStrap.Form.Label>
-              <ReactBootStrap.Form.Control
-                type="text"
-                placeholder="Ingresa tu apellido"
-                name="apellido_usuario"
-                onChange={(e) => setApellido_usuario(e.target.value)}
-                value={apellido_usuario}
-              />
-              <ReactBootStrap.Form.Text className="text-muted"></ReactBootStrap.Form.Text>
-            </ReactBootStrap.Form.Group>
-            <ReactBootStrap.Form.Group controlId="formBasicEmail">
-              <ReactBootStrap.Form.Label>Email</ReactBootStrap.Form.Label>
-              <ReactBootStrap.Form.Control
-                type="email"
-                placeholder="Ingresa tu correo"
-                name="email_usuario"
-                onChange={(e) => setEmail_usuario(e.target.value)}
-                value={email_usuario}
-              />
-              <ReactBootStrap.Form.Text className="text-muted"></ReactBootStrap.Form.Text>
-            </ReactBootStrap.Form.Group>
-            <ReactBootStrap.Form.Group controlId="formBasicPassword">
-              <ReactBootStrap.Form.Label>Contraseña</ReactBootStrap.Form.Label>
-              <ReactBootStrap.Form.Control
-                type="password"
-                placeholder="Contraseña"
-                name="contrasena_usuario"
-                onChange={(e) => setContrasena_usuario(e.target.value)}
-                value={contrasena_usuario}
-              />
-            </ReactBootStrap.Form.Group>
-            <ReactBootStrap.Form.Group>
-              <ReactBootStrap.Button href="/login" variant="success" type="submit" className="px-4">
-                Inicar sesión
-              </ReactBootStrap.Button>
-            </ReactBootStrap.Form.Group>
-            <ReactBootStrap.Form.Group>
-              <ReactBootStrap.Button variant="success" onClick={onCreate}>
-                Crear una cuenta
-              </ReactBootStrap.Button>
-            </ReactBootStrap.Form.Group>
-          </ReactBootStrap.Form>
-        </ReactBootStrap.Col>
-        <ReactBootStrap.Col md={2} xs={12}></ReactBootStrap.Col>
-      </ReactBootStrap.Row>
-      <ReactBootStrap.Row></ReactBootStrap.Row>
+    <div className="row h-100 p-0 m-0 align-items-center" style={{ backgroundColor: "rgb(240, 242, 245)" }}>
+      <div className="col">
+        <img className="img-fluid" src={logo} width="50%" alt="r3ai_logo" />
+        <h1>R3AI</h1>
+      </div>
+      <div className="col me-5" style={{ backgroundColor: "rgb(255, 255, 255)" }}>
+        <form className="p-3">
+          <div>
+            <h1>Registrarse</h1>
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Nombre</label>
+            <input className="form-control" type="text" placeholder="Ingresa tu nombre" onChange={(e) => setNombre_usuario(e.target.value)} value={nombre_usuario} />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Apellido</label>
+            <input className="form-control" type="text" placeholder="Ingresa tu apellido" onChange={(e) => setApellido_usuario(e.target.value)} value={apellido_usuario} />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Email</label>
+            <input className="form-control" type="email" placeholder="Ingresa tu correo" onChange={(e) => setEmail_usuario(e.target.value)} value={email_usuario} />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Contraseña</label>
+            <input className="form-control" type="password" placeholder="Ingresa tu Contraseña" onChange={(e) => setContrasena_usuario(e.target.value)} value={contrasena_usuario} />
+          </div>
+          <button className="btn btn-primary me-5" onClick={onCreate}>
+            Crear una cuenta
+          </button>
+          <Link className="btn btn-primary ms-5" to="/login">
+            Inicar sesión
+          </Link>
+        </form>
+      </div>
     </div>
   );
 }
