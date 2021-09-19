@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 
 import logo from "../img/r3ai_logo.png";
 
@@ -17,27 +18,15 @@ export default function SignUp() {
 
   const callAPI = (e) => {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_API_URL}/signin/${usuario.email}`)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.boolean) {
-          fetch(`${process.env.REACT_APP_API_URL}/signin`, {
-            method: "POST",
-            body: JSON.stringify(usuario),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          });
-          setCookie("email_usuario", usuario.email, { path: "/" });
-          window.alert("Usuario Creado");
-          history.push("/profile");
-        } else {
-          window.alert("El correo ya esta registrado");
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios.post(`${process.env.REACT_APP_API_URL}/signin`).then((res) => {
+      if (res.data) {
+        setCookie("email_usuario", usuario.email, { path: "/" });
+        window.alert("Usuario Creado");
+        history.push("/profile");
+      } else {
+        window.alert("El correo ya esta registrado");
+      }
+    });
   };
 
   return (

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 
 import logo from "../img/r3ai_logo.png";
 
@@ -18,22 +19,14 @@ export default function Login() {
 
   const callAPI = (e) => {
     e.preventDefault();
-    fetch(`${process.env.REACT_APP_API_URL}/login/${usuario.email}/${usuario.contrasena}`)
-      .then((res) => res.json())
-      .then(
-        (res) => {
-          if (res[1].validPass) {
-            setCookie("email_usuario", usuario.email, { path: "/" });
-            history.push("/profile");
-          } else {
-            window.alert("Contraseña invalida");
-          }
-        },
-        (error) => {
-          console.log(error);
-        }
-      )
-      .catch((error) => console.log(error));
+    axios.post(`${process.env.REACT_APP_API_URL}/login`, usuario).then((res) => {
+      if (res.data.validPass) {
+        setCookie("email_usuario", usuario.email, { path: "/" });
+        history.push("/profile");
+      } else {
+        window.alert("Contraseña invalida");
+      }
+    });
   };
 
   return (
