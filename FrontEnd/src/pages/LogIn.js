@@ -3,21 +3,19 @@ import { Link, useHistory } from "react-router-dom";
 import logo from "../img/r3ai_logo.png";
 import Cookies from "universal-cookie";
 
-const cookies = new Cookies();
-
 export default function Login() {
+  const [usuario, setUsuario] = useState({ email: "", contrasena: "" });
+  const cookies = new Cookies();
+  const history = useHistory();
+
   useEffect(() => {
     if (cookies.get("email_usuario")) {
       window.location.href = "../profile";
     }
   });
 
-  const [contrasena_usuario, setContrasena_usuario] = useState("");
-  const [email_usuario, setEmail_usuario] = useState("");
-  const history = useHistory();
-
   const callAPI = (e) => {
-    fetch(`https://backend-steel-rho.vercel.app/login/${email_usuario}/${contrasena_usuario}`)
+    fetch(`https://backend-steel-rho.vercel.app/login/${usuario.email}/${usuario.contrasena}`)
       .then((res) => res.json())
       .then(
         (res) => {
@@ -55,16 +53,16 @@ export default function Login() {
           </div>
           <div className="mb-3">
             <label className="form-label">Email address</label>
-            <input type="email" class="form-control" placeholder="Ingresa tu correo" onChange={(e) => setEmail_usuario(e.target.value)} value={email_usuario} />
+            <input className="form-control" type="email" placeholder="Ingresa tu correo" value={usuario.email} onChange={(e) => setUsuario({ ...usuario, email: e.target.value })} />
           </div>
-          <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="Contraseña" onChange={(e) => setContrasena_usuario(e.target.value)} value={contrasena_usuario} />
+          <div className="mb-3">
+            <label className="form-label">Password</label>
+            <input className="form-control" type="password" placeholder="Contraseña" value={usuario.contrasena} onChange={(e) => setUsuario({ ...usuario, contrasena: e.target.value })} />
           </div>
-          <button class="btn btn-primary me-5" onClick={onCreate}>
+          <button className="btn btn-primary me-5" onClick={onCreate}>
             Inicar sesión
           </button>
-          <Link class="btn btn-primary ms-5" to="/">
+          <Link className="btn btn-primary ms-5" to="/signin">
             Crear una cuenta
           </Link>
         </form>

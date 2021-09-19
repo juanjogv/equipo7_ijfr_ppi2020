@@ -4,9 +4,9 @@ import Cookies from "universal-cookie";
 
 import logo from "../img/r3ai_logo.png";
 
-const cookies = new Cookies();
-
 export default function SignUp() {
+  const [usuario, setUsuario] = useState({ nombre: "", apellido: "", email: "", contrasena: "" });
+  const cookies = new Cookies();
   const history = useHistory();
 
   useEffect(() => {
@@ -15,31 +15,21 @@ export default function SignUp() {
     }
   });
 
-  const [nombre_usuario, setNombre_usuario] = useState("");
-  const [contrasena_usuario, setContrasena_usuario] = useState("");
-  const [apellido_usuario, setApellido_usuario] = useState("");
-  const [email_usuario, setEmail_usuario] = useState("");
-
   const callAPI = () => {
-    fetch(`https://backend-steel-rho.vercel.app/signin/${email_usuario}`)
+    fetch(`https://backend-steel-rho.vercel.app/signin/${usuario.email}`)
       .then((res) => res.json())
       .then((res) => {
         if (res.boolean) {
           fetch("https://backend-steel-rho.vercel.app/signin", {
             method: "POST",
-            body: JSON.stringify({
-              nombre_usuario: nombre_usuario,
-              contrasena_usuario: contrasena_usuario,
-              apellido_usuario: apellido_usuario,
-              email_usuario: email_usuario,
-            }),
+            body: JSON.stringify(usuario),
             headers: {
               "Content-Type": "application/json",
             },
           });
-          cookies.set("nombre_usuario", nombre_usuario, { path: "/" });
-          cookies.set("apellido_usuario", apellido_usuario, { path: "/" });
-          cookies.set("email_usuario", email_usuario, { path: "/" });
+          cookies.set("nombre_usuario", usuario.nombre, { path: "/" });
+          cookies.set("apellido_usuario", usuario.apellido, { path: "/" });
+          cookies.set("email_usuario", usuario.email, { path: "/" });
           history.push("/login");
           window.alert("Usuario Creado");
         } else {
@@ -68,19 +58,19 @@ export default function SignUp() {
           </div>
           <div className="mb-3">
             <label className="form-label">Nombre</label>
-            <input className="form-control" type="text" placeholder="Ingresa tu nombre" onChange={(e) => setNombre_usuario(e.target.value)} value={nombre_usuario} />
+            <input className="form-control" type="text" placeholder="Ingresa tu nombre" value={usuario.nombre} onChange={(e) => setUsuario(e.target.value)} />
           </div>
           <div className="mb-3">
             <label className="form-label">Apellido</label>
-            <input className="form-control" type="text" placeholder="Ingresa tu apellido" onChange={(e) => setApellido_usuario(e.target.value)} value={apellido_usuario} />
+            <input className="form-control" type="text" placeholder="Ingresa tu apellido" value={usuario.apellido} onChange={(e) => setUsuario(e.target.value)} />
           </div>
           <div className="mb-3">
             <label className="form-label">Email</label>
-            <input className="form-control" type="email" placeholder="Ingresa tu correo" onChange={(e) => setEmail_usuario(e.target.value)} value={email_usuario} />
+            <input className="form-control" type="email" placeholder="Ingresa tu correo" value={usuario.email} onChange={(e) => setUsuario({ ...usuario, email: e.target.value })} />
           </div>
           <div className="mb-3">
             <label className="form-label">Contraseña</label>
-            <input className="form-control" type="password" placeholder="Ingresa tu Contraseña" onChange={(e) => setContrasena_usuario(e.target.value)} value={contrasena_usuario} />
+            <input className="form-control" type="password" placeholder="Ingresa tu Contraseña" value={usuario.contrasena} onChange={(e) => setUsuario({ ...usuario, contrasena: e.target.value })} />
           </div>
           <button className="btn btn-primary me-5" onClick={onCreate}>
             Crear una cuenta
