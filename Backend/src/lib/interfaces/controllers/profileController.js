@@ -1,27 +1,19 @@
-const {
-  publicacion,
-  escaneo,
-  usuario,
-} = require("../../infrastructure/relationModels");
+const { publicacion, escaneo, usuario } = require("../../infrastructure/relationModels");
 
 module.exports = {
-  async findPosts(req) {
-    const { id_usuario } = req.body;
-    return await publicacion.findAll({
-      where: { id_usuario },
-    });
-  },
-  async findEscaneos(req) {
-    const { id_usuario } = req.body;
-    return await escaneo.findAll({
-      where: { id_usuario },
-    });
-  },
-  async findFoto(req) {
-    const { id_usuario } = req.body;
-    return await usuario.findAll({
-      attributes: ["foto_usuario"],
-      where: { id_usuario },
+  async findProfile(req) {
+    const { email_usuario } = req.body;
+
+    const { id_usuario } = await usuario.findOne({ where: { email_usuario } });
+
+    return await usuario.findOne({
+      attributes: ["nombre_usuario", "apellido_usuario", "foto_usuario", "escaneos_usuario"],
+      where: { email_usuario },
+      include: {
+        model: publicacion,
+        where: { id_usuario },
+        as: "publicacions",
+      },
     });
   },
 };
