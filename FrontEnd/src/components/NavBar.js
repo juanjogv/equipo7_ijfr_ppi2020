@@ -1,18 +1,26 @@
+import React, { useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
-import React from "react";
 import logo from "../img/r3ai_logo.png";
 import camara from "../img/NavBar2/camara.png";
 import competencia from "../img/NavBar2/competencia.png";
 import user from "../img/NavBar2/user.png";
 import logout from "../img/NavBar2/logout.png";
 
-import Cookies from "universal-cookie";
-
-const cookies = new Cookies();
-
 export default function NavBar() {
+  // eslint-disable-next-line no-unused-vars
+  const [cookies, setCookie, removeCookie] = useCookies(["email_usuario"]);
   const history = useHistory();
+
+  useEffect(() => {
+    if (!cookies.email_usuario) {
+      window.alert("Necesita iniciar sesion para usar esta función");
+      history.push("/login");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -53,10 +61,7 @@ export default function NavBar() {
               className="btn"
               type="submit"
               onClick={(e) => {
-                cookies.remove("id_usuario");
-                cookies.remove("nombre_usuario");
-                cookies.remove("apellido_usuario");
-                cookies.remove("email_usuario");
+                removeCookie("email_usuario");
                 history.push("/");
               }}
             >
