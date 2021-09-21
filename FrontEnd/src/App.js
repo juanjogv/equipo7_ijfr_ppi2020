@@ -6,7 +6,7 @@ import SignIn from "./pages/SignIn.js";
 import Profile from "./pages/Profile.js";
 // import Posts from './pages/Posts.js';
 // import Ranking from './pages/Ranking.js';
-// import QR_Reader from './components/QR_Reader';
+import QRReader from "./components/QRReader";
 import "./App.css";
 
 export default function App() {
@@ -18,9 +18,9 @@ export default function App() {
           <Route path="/login" component={LogIn} />
           <Route path="/signin" component={SignIn} />
           <Route path="/profile" component={Profile} />
-          {/* <Route path='/reader' component={QR_Reader} />          
-          <Route path='/posts' component={Posts} />
-          <Route path='/ranking' component={Ranking} />*/}
+          <Route path="/reader" component={QRReader} />
+          {/* <Route path='/posts' component={Posts} />
+          <Route path='/ranking' component={Ranking} /> */}
         </Switch>
       </Router>
     </div>

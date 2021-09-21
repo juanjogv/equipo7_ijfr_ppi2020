@@ -33,17 +33,17 @@ export default function NavBar() {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav w-100 justify-content-center">
             <li className="nav-item">
-              <Link className="nav-link" to="/home">
+              <Link className="nav-link" to="/profile">
                 <img src={user} alt="logo" width="45px" />
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/home">
+              <Link className="nav-link" to="/reader">
                 <img src={camara} alt="logo" width="45px" />
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/home">
+              <Link className="nav-link" to="/Ranking">
                 <img src={competencia} alt="logo" width="45px" />
               </Link>
             </li>
