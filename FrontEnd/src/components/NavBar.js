@@ -51,7 +51,7 @@ export default function NavBar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Ranking">
+              <Link className="nav-link" to="/ranking">
                 <img src={competencia} alt="logo" width="45px" />
               </Link>
             </li>
