@@ -13,7 +13,7 @@ export default function RankingCards() {
   }, []);
 
   return (
-    <div className="row justify-content-center">
+    <div className="row justify-content-center p-0 m-0">
       {ranking
         ? ranking.map((card) => (
             <div class="card col" style={{ width: "18rem" }}>
