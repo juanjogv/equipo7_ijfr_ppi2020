@@ -1,88 +1,73 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import * as ReactBootStrap from 'react-bootstrap';
-import logo from '../img/r3ai_logo.png';
-import Cookies from 'universal-cookie';
+import React, { useState, useEffect } from "react";
+import { useCookies } from "react-cookie";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 
-const cookies = new Cookies();
+import logo from "../img/r3ai_logo.png";
 
 export default function Login() {
+  const [usuario, setUsuario] = useState({ email_usuario: "", contrasena_usuario: "" });
+  const [cookies, setCookie] = useCookies(["email_usuario"]);
+  const history = useHistory();
 
-    const StyleForm = {
-        position: 'absolute',
-        backgroundColor: 'rgb(240, 242, 245)',
-        width: '100%',
-        height: '100%'
+  useEffect(() => {
+    if (cookies.email_usuario) {
+      history.push("/profile");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    useEffect(() => {
-        if (cookies.get('email_usuario')) {
-            window.location.href = "../profile"
-        }
-    })
+  const callAPI = (e) => {
+    e.preventDefault();
+    axios.post(`${process.env.REACT_APP_API_URL}/login`, usuario).then((res) => {
+      if (res.data.valid) {
+        setCookie("email_usuario", usuario.email_usuario, { path: "/" });
+        history.push("/profile");
+      } else {
+        window.alert("Contraseña invalida");
+      }
+    });
+  };
 
-
-    const [contrasena_usuario, setContrasena_usuario] = useState("");
-    const [email_usuario, setEmail_usuario] = useState("");
-    const history = useHistory();
-
-    const callAPI = e => {
-        fetch(`https://backend-steel-rho.vercel.app/login/${email_usuario}/${contrasena_usuario}`)
-            .then(res => res.json())
-            .then(res => {
-
-                if (res[1].validPass) {
-
-                    cookies.set('id_usuario', res[0].id_usuario, { path: "/" })
-                    cookies.set('nombre_usuario', res[0].nombre_usuario, { path: "/" })
-                    cookies.set('apellido_usuario', res[0].apellido_usuario, { path: "/" })
-                    cookies.set('email_usuario', res[0].email_usuario, { path: "/" })
-                    history.push("/profile")
-                } else {
-                    window.alert('Contraseña invalida')
-                }
-            }, (error) => {
-                console.log(error)
-            }
-            ).catch(error => console.log(error))
-    }
-
-    const onCreate = () => {
-        callAPI();
-    }
-
-    return (
-        <div>
-            <ReactBootStrap.Row></ReactBootStrap.Row>
-            <ReactBootStrap.Row style={StyleForm} className='d-flex align-items-center justify-content-center' >
-                <ReactBootStrap.Col md={2} xs={12}></ReactBootStrap.Col>
-                <ReactBootStrap.Col md={3} xs={12}>
-                    <ReactBootStrap.Image src={logo} width="90%" fluid />
-                    <h1>R3AI</h1>
-                </ReactBootStrap.Col>
-                <ReactBootStrap.Col md={{ span: 5, offset: 0 }} xs={12} style={{ boxShadow: '1px 3px 3px 3px rgba(0, 0, 0, 0.1)', borderRadius: '3%', backgroundColor: 'rgb(255, 255, 255)', paddingBottom: '2%' }}>
-                    <ReactBootStrap.Form >
-                        <ReactBootStrap.Form.Label><h1>Iniciar sesión</h1></ReactBootStrap.Form.Label>
-                        <ReactBootStrap.Form.Group controlId="formBasicEmail">
-                            <ReactBootStrap.Form.Control type="email" placeholder="Ingresa tu correo" name="email_usuario" onChange={e => setEmail_usuario(e.target.value)} value={email_usuario} />
-                            <ReactBootStrap.Form.Label></ReactBootStrap.Form.Label>
-                            <ReactBootStrap.Form.Control type="password" placeholder="Contraseña" name="contrasena_usuario" onChange={e => setContrasena_usuario(e.target.value)} value={contrasena_usuario} />
-                        </ReactBootStrap.Form.Group>
-                        <ReactBootStrap.Form.Group>
-                            <ReactBootStrap.Button variant="success" onClick={onCreate} className='px-4'>
-                                Inicar sesión
-                                    </ReactBootStrap.Button>
-                        </ReactBootStrap.Form.Group>
-                        <ReactBootStrap.Form.Group>
-                            <ReactBootStrap.Button href='/signin' variant="success" type="submit">
-                                Crear una cuenta
-                                    </ReactBootStrap.Button>
-                        </ReactBootStrap.Form.Group>
-                    </ReactBootStrap.Form>
-                </ReactBootStrap.Col>
-                <ReactBootStrap.Col md={2} xs={12}></ReactBootStrap.Col>
-            </ReactBootStrap.Row>
-            <ReactBootStrap.Row></ReactBootStrap.Row>
-        </div>
-    );
+  return (
+    <div className="row h-100 p-0 m-0 align-items-center" style={{ backgroundColor: "rgb(240, 242, 245)" }}>
+      <div className="col">
+        <img className="img-fluid" src={logo} width="50%" alt="r3ai_logo" />
+        <h1>R3AI</h1>
+      </div>
+      <div className="col me-5" style={{ backgroundColor: "rgb(255, 255, 255)" }}>
+        <form className="p-3">
+          <div>
+            <h1>Iniciar sesión</h1>
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Email address</label>
+            <input
+              className="form-control"
+              type="email"
+              placeholder="Ingresa tu correo"
+              value={usuario.email_usuario}
+              onChange={(e) => setUsuario({ ...usuario, email_usuario: e.target.value })}
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">Password</label>
+            <input
+              className="form-control"
+              type="password"
+              placeholder="Contraseña"
+              value={usuario.contrasena_usuario}
+              onChange={(e) => setUsuario({ ...usuario, contrasena_usuario: e.target.value })}
+            />
+          </div>
+          <button className="btn btn-primary me-5" onClick={callAPI}>
+            Inicar sesión
+          </button>
+          <Link className="btn btn-primary ms-5" to="/signin">
+            Crear una cuenta
+          </Link>
+        </form>
+      </div>
+    </div>
+  );
 }
