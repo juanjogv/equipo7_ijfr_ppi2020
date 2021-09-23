@@ -1,51 +1,42 @@
-import React, { Component } from 'react';
-import '../styles/Post.css';
-import { Form } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-export default class Post extends Component {
+import "../styles/Post.css";
 
-    state = {
-        posts: []
-    }
+export default function Post() {
+  const [posts, setPosts] = useState([]);
 
-    componentDidMount() {
-        fetch('http://localhost:3000/posts')
-            .then(res => res.json())
-            .then(res => this.setState({ posts: res }))
-    }
+  useEffect(() => {
+    axios.get(`${process.env.REACT_APP_API_URL}/posts`).then((res) => setPosts(res.data));
+  }, []);
 
-
-    render() {
-        return (
-            <div>
-                <h1 className="publicaciones"></h1>
-                {
-                    this.state.posts.map(post => {
-                        return <div className="contenedor" key={post.id_publicacion}>
-                            <div className="caja">
-                                <h1>{post.titulo_publicacion}</h1>
-                                <p>{post.body_publicacion}</p>
-                                <div className="imagen">
-                                    <img src={post.img_publicacion} alt={post.id_publicacion} className="img-fluid" ></img>
-                                </div>
-                            </div>
-                            <div className="comentario">
-                                <div className="Form">
-                                    <Form>
-                                        <Form.Group controlId="formBasicEmail">
-                                            <Form.Control type="text" placeholder="Enter your commentary" />
-                                        </Form.Group>
-                                        <Button variant="success" type="submit">
-                                            comment
-                                        </Button>
-                                    </Form>
-                                </div>
-                            </div>
-                        </div>
-                    })
-                }
-            </div>
-        )
-    }
+  return (
+    <div>
+      {posts
+        ? posts.map((post) => {
+            return (
+              <div className="contenedor" key={post.id_publicacion}>
+                <div className="caja">
+                  <h1>{post.titulo_publicacion}</h1>
+                  <p>{post.body_publicacion}</p>
+                  <div className="imagen">
+                    <img src={post.img_publicacion} alt={post.id_publicacion} className="img-fluid"></img>
+                  </div>
+                </div>
+                <div className="comentario">
+                  <div className="Form">
+                    <form className="Form">
+                      <input className="form-control" type="text" placeholder="Enter your commentary" />
+                      <button variant="success" type="submit">
+                        comment
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            );
+          })
+        : null}
+    </div>
+  );
 }

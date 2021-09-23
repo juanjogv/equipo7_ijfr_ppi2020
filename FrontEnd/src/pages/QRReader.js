@@ -1,18 +1,12 @@
 import React, { useEffect, useState } from "react";
 import QrReader from "react-qr-reader";
 
-import NavBar from "./NavBar";
-import QRCard from "./QRCard";
-// import Plastico from "../components/plastico";
-// import Papel from "../components/papel";
-// import Ordinario from "../components/ordinario";
+import NavBar from "../components/NavBar";
+import QRCard from "../components/QRCard";
 
-// import Cookies from "universal-cookie";
-
-// const cookies = new Cookies();
 // let prueba = false;
 
-export default function QR_Reader() {
+export default function QRReader() {
   const [result, setResult] = useState(null);
 
   useEffect(() => {

@@ -4,9 +4,10 @@ import IntroBlocks from "./pages/IntroBlocks";
 import LogIn from "./pages/LogIn.js";
 import SignIn from "./pages/SignIn.js";
 import Profile from "./pages/Profile.js";
-// import Posts from './pages/Posts.js';
+import QRReader from "./pages/QRReader";
+import Posts from "./pages/Posts.js";
 // import Ranking from './pages/Ranking.js';
-import QRReader from "./components/QRReader";
+
 import "./App.css";
 
 export default function App() {
@@ -19,8 +20,8 @@ export default function App() {
           <Route path="/signin" component={SignIn} />
           <Route path="/profile" component={Profile} />
           <Route path="/reader" component={QRReader} />
-          {/* <Route path='/posts' component={Posts} />
-          <Route path='/ranking' component={Ranking} /> */}
+          <Route path="/posts" component={Posts} />
+          {/* <Route path='/ranking' component={Ranking} /> */}
         </Switch>
       </Router>
     </div>

@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import React from "react";
+
 import Plasticos from "../img/plasticos.png";
 import papel from "../img/papel.png";
 import ordinario from "../img/ordinarios.png";

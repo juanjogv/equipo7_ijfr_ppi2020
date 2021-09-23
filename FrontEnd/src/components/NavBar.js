@@ -24,7 +24,7 @@ export default function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <Link to="/home">
+        <Link to="/posts">
           <img src={logo} alt="logo" width="45px" />
         </Link>
         <button
